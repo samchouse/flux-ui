@@ -1,0 +1,3 @@
+# Config Files
+.eslintrc text diff=json
+.prettierrc text diff=json

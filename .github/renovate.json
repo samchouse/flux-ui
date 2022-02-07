@@ -1,0 +1,26 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    ":assignee(Xenfo)",
+    ":dependencyDashboard",
+    ":separateMajorReleases",
+    ":combinePatchMinorReleases",
+    ":ignoreUnstable",
+    ":prImmediately",
+    ":semanticCommits",
+    ":semanticPrefixFixDepsChoreOthers",
+    ":updateNotScheduled",
+    ":automergePr",
+    ":automergeAll",
+    ":ignoreModulesAndTests",
+    ":preserveSemverRanges",
+    ":prHourlyLimit4",
+    ":prConcurrentLimit20",
+    ":label(dependencies)",
+    ":enableVulnerabilityAlertsWithLabel(security)",
+    "group:monorepos",
+    "group:recommended",
+    "workarounds:all"
+  ],
+  "automergeStrategy": "squash"
+}
