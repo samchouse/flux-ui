@@ -1,7 +1,15 @@
 {
   "name": "@flux-ui/docs",
   "version": "0.0.0",
+  "description": "An awesome React component library built with Radix UI Primitives & Stiches",
   "private": true,
+  "author": "Samuel Corsi-House <chouse.samuel@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flux-ui/flux-ui.git",
+    "directory": "docs"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
