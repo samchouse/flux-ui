@@ -1,0 +1,63 @@
+{
+  "name": "flux-ui",
+  "version": "0.0.0",
+  "description": "An awesome React component library built with Radix UI Primitives & Stiches",
+  "private": true,
+  "author": "Samuel Corsi-House <chouse.samuel@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flux-ui/flux-ui.git"
+  },
+  "workspaces": [
+    "docs/",
+    "packages/*"
+  ],
+  "scripts": {
+    "postinstall": "is-ci || husky install",
+    "commit": "cz",
+    "new": "plop && yarn install",
+    "build": "turbo run build",
+    "dev": "turbo run dev --parallel",
+    "lint": "turbo run lint",
+    "format": "prettier -w --ignore-path .prettierignore .",
+    "upgrade": "node scripts/upgrade.mjs",
+    "release": "node scripts/release.mjs",
+    "changelog": "git cliff -o ./CHANGELOG.md"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.0",
+    "@commitlint/cli": "^16.1.0",
+    "@commitlint/config-conventional": "^16.0.0",
+    "@commitlint/cz-commitlint": "^16.1.0",
+    "@trivago/prettier-plugin-sort-imports": "^3.2.0",
+    "@types/node": "^17.0.15",
+    "@typescript-eslint/eslint-plugin": "^5.10.2",
+    "@typescript-eslint/parser": "^5.10.2",
+    "chalk": "^5.0.0",
+    "commitizen": "^4.2.4",
+    "eslint": "^8.8.0",
+    "eslint-config-marine": "^9.3.2",
+    "eslint-config-next": "^12.0.10",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "execa": "^6.0.0",
+    "globby": "^13.1.1",
+    "husky": "^7.0.4",
+    "is-ci": "^3.0.1",
+    "lint-staged": "^12.3.3",
+    "npm-check-updates": "^12.2.1",
+    "plop": "^3.0.5",
+    "prettier": "^2.5.1",
+    "tslib": "^2.3.1",
+    "tsup": "^5.11.13",
+    "turbo": "latest",
+    "typescript": "^4.5.5"
+  },
+  "config": {
+    "commitizen": {
+      "path": "@commitlint/cz-commitlint"
+    }
+  },
+  "packageManager": "yarn@3.1.1"
+}

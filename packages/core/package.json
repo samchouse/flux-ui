@@ -1,0 +1,30 @@
+{
+  "name": "@flux-ui/core",
+  "version": "0.0.0",
+  "description": "An awesome React component library built with Radix UI Primitives & Stiches",
+  "author": "Samuel Corsi-House <chouse.samuel@gmail.com>",
+  "license": "MIT",
+  "main": "./dist/index.cjs.js",
+  "module": "./dist/index.esm.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flux-ui/flux-ui.git",
+    "directory": "packages/core"
+  },
+  "scripts": {
+    "build": "tsup",
+    "lint": "eslint --fix --ignore-path ../../.gitignore ."
+  },
+  "peerDependencies": {
+    "react": ">=17.0.0",
+    "react-dom": ">=17.0.0"
+  }
+}
