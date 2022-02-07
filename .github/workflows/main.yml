@@ -24,6 +24,20 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: yarn
 
+      - name: Restore Next Config
+        uses: actions/cache@v2
+        with:
+          path: ~/.config/nextjs-nodejs/**
+          key: ${{ runner.os }}-next-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Restore Turbo Cache
+        uses: actions/cache@v2
+        with:
+          path: |
+            **/.turbo/turbo-*.log
+            !**/node_modules/**
+          key: ${{ runner.os }}-turbo-${{ hashFiles('**/yarn.lock') }}
+
       - name: Install Dependencies
         run: yarn --immutable
 
