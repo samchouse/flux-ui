@@ -26,7 +26,7 @@ module.exports = {
       getPackages(ctx).then((packages) => [
         2,
         'always',
-        packages.concat(['release', 'scripts', 'deps', 'misc'])
+        packages.concat(['release', 'scripts', 'templates', 'deps', 'misc'])
       ])
   }
 };
