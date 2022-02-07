@@ -44,7 +44,7 @@ const tag = async (version) => {
     cwd: process.cwd()
   });
 
-  await changelog();
+  await changelog(version);
 };
 
 const changelog = async (version) => {
