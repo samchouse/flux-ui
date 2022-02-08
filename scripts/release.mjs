@@ -29,6 +29,10 @@ const release = async (version) => {
     });
   }
 
+  await execa('yarn', ['install'], {
+    cwd: process.cwd()
+  });
+
   await execa('yarn', ['format'], {
     cwd: process.cwd()
   });
