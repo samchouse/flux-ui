@@ -5,7 +5,7 @@ header = """
 
 body = """
 # Version \
-{% if version %}
+{% if version %}\
     {{ version | trim_start_matches(pat="v") }}
 {% else %}\
     [unreleased]
