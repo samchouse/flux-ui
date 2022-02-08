@@ -88,3 +88,19 @@ jobs:
           prerelease: ${{ steps.is-canary.outputs.isCanary }}
           discussion_category_name: Releases
           token: ${{ secrets.GITHUB_TOKEN }}
+
+  alert:
+    name: Alert
+    runs-on: ubuntu-latest
+    needs: [release]
+    if: always() && needs.release.result == 'failure'
+
+    steps:
+      - name: Create Issue
+        uses: actions-ecosystem/action-create-issue@v1
+        with:
+          github_token: ${{ secrets.github_token }}
+          title: Release Error - ${{ steps.date.outputs.today }}
+          body: '**Error:** ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}'
+          assignees: Xenfo
+          labels: bug
