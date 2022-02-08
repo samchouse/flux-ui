@@ -48,7 +48,7 @@ const tag = async (version) => {
   await execa('git', ['tag', version, 'main'], {
     cwd: process.cwd()
   });
-  await execa('git', ['push', '--all']);
+  await execa('git', ['push', '--follow-tags']);
 
   console.log(
     chalk.bgGreen(chalk.black(' SUCCESS ')),
