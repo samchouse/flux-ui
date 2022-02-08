@@ -5,6 +5,9 @@ on:
     branches: [main]
   pull_request:
 
+env:
+  NEXT_TELEMETRY_DISABLED: 1
+
 jobs:
   lint:
     name: Lint
@@ -36,8 +39,7 @@ jobs:
         run: yarn --immutable
 
       - name: Run Linter
-        run: yarn lint
+        run: yarn lint --no-cache
         env:
-          NEXT_TELEMETRY_DISABLED: 1
           VERCEL_ARTIFACTS_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           VERCEL_ARTIFACTS_OWNER: ${{ secrets.VERCEL_OWNER }}
