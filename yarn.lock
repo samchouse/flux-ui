@@ -7703,7 +7703,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-turbo@latest:
+"turbo@npm:latest":
   version: 1.1.2
   resolution: "turbo@npm:1.1.2"
   dependencies:
