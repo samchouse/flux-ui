@@ -77,12 +77,12 @@ jobs:
         run: yarn --immutable
 
       - name: Publish Packages
-        run: yarn publish --scope="-@flux-ui/docs" -- --tag ${{ steps.canary-meta.outputs.tag }}
+        run: yarn publish --scope="\!@flux-ui/docs" -- --tag ${{ steps.canary-meta.outputs.tag }}
 
       - name: Push Changelog
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: "chore(release): push changelog"
+          commit_message: 'chore(release): push changelog'
           file_pattern: CHANGELOG.md
 
       - name: Set Release Body
