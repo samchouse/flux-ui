@@ -1,6 +1,6 @@
 {
   "name": "@flux-ui/core",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "An awesome React component library built with Radix UI Primitives & Stiches",
   "author": "Samuel Corsi-House <chouse.samuel@gmail.com>",
   "license": "MIT",
@@ -21,7 +21,8 @@
   },
   "scripts": {
     "build": "tsup",
-    "lint": "node ../../scripts/eslint.js --ignore-path ../../.gitignore ."
+    "lint": "node ../../scripts/eslint.js --ignore-path ../../.gitignore .",
+    "publish": "yarn npm publish"
   },
   "peerDependencies": {
     "react": ">=17.0.0",
