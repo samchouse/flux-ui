@@ -37,20 +37,14 @@ const release = async (version) => {
 };
 
 const tag = async (version) => {
+  await execa('git', ['checkout', 'main']);
   await execa('git', ['commit', '-am', `chore(release): ${version}`], {
     cwd: process.cwd()
   });
   await execa('git', ['tag', version, 'main'], {
     cwd: process.cwd()
   });
-
-  await changelog(version);
-};
-
-const changelog = async (version) => {
-  await execa('git', ['cliff', '-l', '-p', './CHANGELOG.md'], {
-    cwd: process.cwd()
-  });
+  await execa('git', ['push', '--all']);
 
   console.log(
     chalk.bgGreen(chalk.black(' SUCCESS ')),
