@@ -85,7 +85,7 @@ jobs:
       - name: Push Changelog
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: "chore(release): push changelog"
+          commit_message: 'chore(release): push changelog'
           file_pattern: CHANGELOG.md
 
       - name: Set Release Body

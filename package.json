@@ -26,7 +26,7 @@
     "release": "node scripts/release.mjs"
   },
   "devDependencies": {
-    "@babel/core": "^7.17.0",
+    "@babel/core": "^7.17.2",
     "@commitlint/cli": "^16.1.0",
     "@commitlint/config-conventional": "^16.0.0",
     "@commitlint/cz-commitlint": "^16.1.0",
@@ -47,7 +47,7 @@
     "is-ci": "^3.0.1",
     "lint-staged": "^12.3.3",
     "minimist": "^1.2.5",
-    "npm-check-updates": "^12.2.1",
+    "npm-check-updates": "^12.3.0",
     "plop": "^3.0.5",
     "prettier": "^2.5.1",
     "tslib": "^2.3.1",
