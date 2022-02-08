@@ -6,7 +6,7 @@ on:
   pull_request:
 
 env:
-  NEXT_TELEMETRY_DISABLED: 1
+  NEXT_TELEMETRY_DISABLED: 0
 
 jobs:
   lint:
@@ -26,12 +26,6 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: yarn
-
-      - name: Restore Next Config
-        uses: actions/cache@v2
-        with:
-          path: ~/.config/nextjs-nodejs/**
-          key: ${{ runner.os }}-next-${{ hashFiles('**/yarn.lock') }}
 
       - name: Restore Turbo Cache
         uses: actions/cache@v2
