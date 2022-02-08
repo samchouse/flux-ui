@@ -48,7 +48,7 @@ const tag = async (version) => {
 };
 
 const changelog = async (version) => {
-  await execa('yarn', ['changelog'], {
+  await execa('git', ['cliff', '-l', '-p', './CHANGELOG.md'], {
     cwd: process.cwd()
   });
 
