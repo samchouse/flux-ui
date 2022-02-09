@@ -55,7 +55,6 @@ jobs:
 
       - name: Generate Changelog
         uses: orhun/git-cliff-action@v1
-        id: git-cliff
         with:
           config: ./cliff.toml
           args: -l -p ./CHANGELOG.md
