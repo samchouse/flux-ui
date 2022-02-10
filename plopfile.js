@@ -41,8 +41,12 @@ const config = (/** @type {import('plop').NodePlopAPI} */ plop) => {
         type: 'input',
         name: 'version',
         message: "New component's version",
-        default: version,
-        when: () => false
+        default: `v${version}`,
+        validate: (input) =>
+          input.match(/^v[0-9]+.[0-9]+.[0-9]+(-canary.[0-9]+)?$/)
+            ? true
+            : 'Enter a valid version number',
+        transformer: (input) => input.replace(/^v/, '')
       }
     ],
     actions: [

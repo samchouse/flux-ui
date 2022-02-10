@@ -1,0 +1,11 @@
+{
+  "extends": ["marine/prettier/react", "../../.eslintrc"],
+  "rules": {
+    "react/jsx-filename-extension": ["error", { "extensions": [".tsx"] }]
+  },
+  "settings": {
+    "react": {
+      "version": "latest"
+    }
+  }
+}
