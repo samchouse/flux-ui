@@ -1,7 +1,9 @@
 import { CheckIcon, MinusSmIcon } from '@heroicons/react/outline';
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 
 import { StyledCheckbox, StyledIndicator } from './checkbox.styles';
+
+type CheckedState = 'indeterminate' | boolean;
 
 export interface CheckboxProps {
   checked?: boolean;
@@ -13,29 +15,35 @@ export interface CheckboxProps {
 export const Checkbox: React.FC<CheckboxProps> = ({
   checked,
   indeterminate,
+  defaultChecked,
   ...props
 }: CheckboxProps) => {
-  const [selfChecked, setSelfChecked] = useState<'indeterminate' | boolean>(
-    checked ?? false
+  const [selfChecked, setSelfChecked] = useState<CheckedState>(
+    defaultChecked ?? false
   );
 
   useEffect(() => {
-    if (checked === undefined) return;
-    setSelfChecked(checked);
-  }, [checked]);
-
-  useEffect(() => {
-    console.log(indeterminate, selfChecked, typeof selfChecked === 'boolean');
     setSelfChecked(
-      selfChecked === true && indeterminate ? 'indeterminate' : checked ?? false
+      indeterminate
+        ? checked === true
+          ? 'indeterminate'
+          : false
+        : checked ?? defaultChecked ?? false
     );
-    console.log(selfChecked);
-  }, [indeterminate, selfChecked]);
+  }, [checked, defaultChecked, indeterminate]);
+
+  const handleChange = useCallback(() => {
+    if (indeterminate)
+      return setSelfChecked(
+        selfChecked === 'indeterminate' ? false : 'indeterminate'
+      );
+    setSelfChecked(typeof selfChecked === 'boolean' ? !selfChecked : false);
+  }, [selfChecked, indeterminate]);
 
   return (
     <StyledCheckbox
       checked={selfChecked}
-      onCheckedChange={setSelfChecked}
+      onCheckedChange={handleChange}
       {...props}
     >
       <StyledIndicator>
