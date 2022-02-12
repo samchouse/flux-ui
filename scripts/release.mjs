@@ -20,6 +20,8 @@ const getPackageJsons = async () => {
 };
 
 const release = async (version) => {
+  await execa('git', ['checkout', 'main']);
+
   const packageJsons = await getPackageJsons();
 
   for (const pkgJson of packageJsons) {
@@ -41,7 +43,6 @@ const release = async (version) => {
 };
 
 const tag = async (version) => {
-  await execa('git', ['checkout', 'main']);
   await execa('git', ['commit', '-am', `chore(release): ${version}`], {
     cwd: process.cwd()
   });
