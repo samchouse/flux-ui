@@ -46,8 +46,10 @@ jobs:
         with:
           result-encoding: json
           script: |
+            const { version } = require('./package.json');
             const isCanary = context.ref.includes('canary');
             return {
+              version,
               isCanary,
               tag: isCanary ? 'canary' : 'latest',
               cliffPath: isCanary ? '.github/config/canary-cliff.toml' : '.github/config/cliff.toml'
@@ -63,7 +65,7 @@ jobs:
         uses: orhun/git-cliff-action@v1
         id: git-cliff
         with:
-          config: ${{ steps.canary-meta.outputs.cliffPath }}
+          config: ${{ fromJSON(steps.canary-meta.outputs.result).cliffPath }}
           args: -l
         env:
           OUTPUT: CHANGES.md
@@ -76,7 +78,7 @@ jobs:
         run: yarn --immutable
 
       - name: Publish Packages
-        run: yarn publish --scope="-@flux-ui/docs" -- --tag ${{ steps.canary-meta.outputs.tag }}
+        run: yarn publish --scope="\!@flux-ui/docs" -- --tag ${{ fromJSON(steps.canary-meta.outputs.result).tag }}
         env:
           VERCEL_ARTIFACTS_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           VERCEL_ARTIFACTS_OWNER: ${{ secrets.VERCEL_OWNER }}
@@ -84,7 +86,7 @@ jobs:
       - name: Push Changelog
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: 'chore(release): push changelog'
+          commit_message: 'chore(release): push changelog for v${{ fromJSON(steps.canary-meta.outputs.result).version }}'
           file_pattern: CHANGELOG.md
 
       - name: Set Release Body
@@ -102,7 +104,7 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           body_path: ./CHANGES.md
-          prerelease: ${{ steps.canary-meta.outputs.isCanary }}
+          prerelease: ${{ fromJSON(steps.canary-meta.outputs.result).isCanary }}
           discussion_category_name: Releases
           token: ${{ secrets.GITHUB_TOKEN }}
 
