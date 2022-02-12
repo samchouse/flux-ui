@@ -7,10 +7,11 @@
       "outputs": ["dist/**", ".next/**"]
     },
     "publish": {
-      "dependsOn": ["lint", "build"],
+      "dependsOn": ["lint"],
       "cache": false
     },
     "lint": {
+      "dependsOn": ["build"],
       "outputs": []
     },
     "watch": {
