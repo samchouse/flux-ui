@@ -43,3 +43,10 @@ yarn-error.log*
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+# storybook
+storybook-static/
+build-storybook.log
+
+# swc
+.swc/
