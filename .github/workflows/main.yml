@@ -9,14 +9,15 @@ env:
   NEXT_TELEMETRY_DISABLED: 1
 
 jobs:
-  build: Build
-  runs-on: ubuntu-latest
+  build:
+    name: Build
+    runs-on: ubuntu-latest
 
-  strategy:
-    matrix:
-      node-version: [17.4.0]
+    strategy:
+      matrix:
+        node-version: [17.4.0]
 
-  steps:
+    steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
@@ -37,7 +38,7 @@ jobs:
       - name: Install Dependencies
         run: yarn --immutable
 
-      - name: Run Linter
+      - name: Run Builder
         run: yarn build
         env:
           VERCEL_ARTIFACTS_TOKEN: ${{ secrets.VERCEL_TOKEN }}
