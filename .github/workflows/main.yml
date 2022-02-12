@@ -9,45 +9,9 @@ env:
   NEXT_TELEMETRY_DISABLED: 1
 
 jobs:
-  build:
-    name: Build
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [17.4.0]
-
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-
-      - name: Set up Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: yarn
-
-      - name: Restore Turbo Cache
-        uses: actions/cache@v2
-        with:
-          path: |
-            **/.turbo/turbo-*.log
-            !**/node_modules/**
-          key: ${{ runner.os }}-turbo-${{ hashFiles('**/yarn.lock') }}
-
-      - name: Install Dependencies
-        run: yarn --immutable
-
-      - name: Run Builder
-        run: yarn build
-        env:
-          VERCEL_ARTIFACTS_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-          VERCEL_ARTIFACTS_OWNER: ${{ secrets.VERCEL_OWNER }}
-
   lint:
     name: Lint
     runs-on: ubuntu-latest
-    needs: [build]
 
     strategy:
       matrix:
