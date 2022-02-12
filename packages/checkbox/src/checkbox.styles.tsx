@@ -2,23 +2,23 @@ import { styled } from '@flux-ui/core';
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
 
 export const StyledCheckbox = styled(CheckboxPrimitive.Root, {
-  length: 0,
   all: 'unset',
   width: 20,
   height: 20,
+  border: 'none',
   display: 'flex',
+  cursor: 'pointer',
+  borderRadius: '$md',
+  background: '$info',
   alignItems: 'center',
   justifyContent: 'center',
-  borderRadius: '$md',
-  cursor: 'pointer',
-  border: 'none',
   transition: 'all 250ms ease',
-  background: '$info',
   '&:hover': {
     background: '$infoDark'
   },
   variants: {
     checked: {
+      indeterminate: {},
       false: {
         boxSizing: 'border-box',
         background: 'transparent',
@@ -32,9 +32,12 @@ export const StyledCheckbox = styled(CheckboxPrimitive.Root, {
 });
 
 export const StyledIndicator = styled(CheckboxPrimitive.Indicator, {
-  length: 0,
   width: 16,
   height: 16,
   display: 'flex',
-  color: '$gray50'
+  color: '$gray50',
+  '& svg': {
+    width: '$full',
+    height: '$full'
+  }
 });

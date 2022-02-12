@@ -38,6 +38,7 @@
     "@storybook/addon-essentials": "^6.4.19",
     "@storybook/addon-links": "^6.4.19",
     "@storybook/react": "^6.4.19",
+    "@swc/core": "^1.2.139",
     "@trivago/prettier-plugin-sort-imports": "^3.2.0",
     "@types/node": "^17.0.17",
     "@typescript-eslint/eslint-plugin": "^5.11.0",
@@ -63,7 +64,7 @@
     "prettier": "^2.5.1",
     "tslib": "^2.3.1",
     "tsup": "^5.11.13",
-    "turbo": "latest",
+    "turbo": "canary",
     "typescript": "^4.5.5"
   },
   "config": {

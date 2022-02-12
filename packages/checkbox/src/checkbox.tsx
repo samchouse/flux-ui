@@ -44,9 +44,10 @@ export const Checkbox: React.FC<CheckboxProps> = ({
     <StyledCheckbox
       checked={selfChecked}
       onCheckedChange={handleChange}
+      defaultChecked={defaultChecked}
       {...props}
     >
-      <StyledIndicator as="div">
+      <StyledIndicator>
         {selfChecked === true && <CheckIcon />}
         {selfChecked === 'indeterminate' && <MinusSmIcon />}
       </StyledIndicator>
