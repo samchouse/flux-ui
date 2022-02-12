@@ -41,7 +41,7 @@ jobs:
           git_user_signingkey: true
 
       - name: Set Canary Meta
-        uses: actions/github-script@v5
+        uses: actions/github-script@v6
         id: canary-meta
         with:
           result-encoding: json
