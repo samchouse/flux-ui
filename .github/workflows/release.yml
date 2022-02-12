@@ -115,11 +115,16 @@ jobs:
     if: always() && needs.release.result == 'failure'
 
     steps:
+      - name: Get Date
+        id: date
+        run: |
+          echo "::set-output name=time::$(date "+%m/%d/%Y @ %H:%M")"
+
       - name: Create Issue
         uses: actions-ecosystem/action-create-issue@v1
         with:
           github_token: ${{ secrets.github_token }}
-          title: Release Error - ${{ steps.date.outputs.today }}
+          title: Release Error - ${{ steps.date.outputs.time }}
           body: '**Error:** ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}'
           assignees: Xenfo
           labels: bug
