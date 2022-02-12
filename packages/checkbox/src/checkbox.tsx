@@ -3,7 +3,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 
 import { StyledCheckbox, StyledIndicator } from './checkbox.styles';
 
-type CheckedState = 'indeterminate' | boolean;
+type CheckedState = boolean | 'indeterminate';
 
 export interface CheckboxProps {
   checked?: boolean;
@@ -46,7 +46,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
       onCheckedChange={handleChange}
       {...props}
     >
-      <StyledIndicator>
+      <StyledIndicator as="div">
         {selfChecked === true && <CheckIcon />}
         {selfChecked === 'indeterminate' && <MinusSmIcon />}
       </StyledIndicator>
