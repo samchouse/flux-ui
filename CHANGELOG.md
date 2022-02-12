@@ -1,5 +1,30 @@
 # Changelog
 
+## [unreleased]
+
+### Bug Fixes
+
+- **Scripts:** Release tagging (#20) ([6a22a52](https://github.com/flux-ui/flux-ui/commit/6a22a5228de3f325069dbaf63c2f17327bb725db))
+
+## [0.0.2](https://github.com/flux-ui/flux-ui/compare/v0.0.1...v0.0.2) - (2022-02-12)
+
+### Bug Fixes
+
+- **Scripts:** Checkout before release (#18) ([cf1d01d](https://github.com/flux-ui/flux-ui/commit/cf1d01d53e00275a1fb873ef3fc7bc1800841e37))
+
+### CI
+
+- **Misc:** Release workflow caching (#11) ([a419590](https://github.com/flux-ui/flux-ui/commit/a4195901cfd59b7c8a1e96f862302c918300b503))
+- **Misc:** Fix release workflow (#13) ([4ed0dd7](https://github.com/flux-ui/flux-ui/commit/4ed0dd73328465888c13d4d06b666b0d14e46289))
+
+### Features
+
+- **Checkbox:** Implement checkbox (#15) ([04b6211](https://github.com/flux-ui/flux-ui/commit/04b6211d82fa94ec863278b522241c4c02f33e45))
+
+### Miscellaneous Tasks
+
+- **Deps:** Update actions/github-script action to v6 (#16) ([14f9a67](https://github.com/flux-ui/flux-ui/commit/14f9a67225789887407f7d93abfb376a96537ed3))
+
 ## [0.0.1](https://github.com/flux-ui/flux-ui/compare/v0.0.0...v0.0.1) - (2022-02-08)
 
 ### Bug Fixes
@@ -26,3 +51,4 @@
 ### Features
 
 - **Lib:** Initial commit ([db1a807](https://github.com/flux-ui/flux-ui/commit/db1a807ad31bbb9921abf6ea81ddd51116fdb73f))
+
