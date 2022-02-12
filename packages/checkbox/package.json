@@ -1,6 +1,6 @@
 {
   "name": "@flux-ui/checkbox",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "An awesome React component library built with Radix UI Primitives & Stiches",
   "author": "Samuel Corsi-House <chouse.samuel@gmail.com>",
   "license": "MIT",
