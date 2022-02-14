@@ -1,6 +1,7 @@
 {
   "$schema": "https://turborepo.com/schema.json",
   "baseBranch": "origin/main",
+  "globalDependencies": ["scripts/eslint.js", ".prettierrc", ".eslintrc"],
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],

@@ -20,8 +20,8 @@
     "directory": "packages/react"
   },
   "scripts": {
-    "build": "tsup",
-    "watch": "tsup --watch",
+    "build": "run -T tsup",
+    "watch": "run -T tsup --watch",
     "lint": "node ../../scripts/eslint.js --ignore-path ../../.gitignore .",
     "publish": "yarn npm publish"
   },
