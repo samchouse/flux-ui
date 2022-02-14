@@ -16,6 +16,8 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
 
       - name: Set up Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
@@ -59,7 +61,8 @@ jobs:
         uses: orhun/git-cliff-action@v1
         with:
           config: ./cliff.toml
-          args: -l -p ./CHANGELOG.md
+        env:
+          OUTPUT: CHANGELOG.md
 
       - name: Generate Release Changelog
         uses: orhun/git-cliff-action@v1
