@@ -62,6 +62,7 @@
     "npm-check-updates": "^12.3.0",
     "plop": "^3.0.5",
     "prettier": "^2.5.1",
+    "storybook-dark-mode": "^1.0.8",
     "tslib": "^2.3.1",
     "tsup": "^5.11.13",
     "turbo": "canary",

@@ -1,21 +1,20 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, Story } from '@storybook/react';
 import React from 'react';
 
-import { Checkbox } from './checkbox';
+import { Checkbox, CheckboxProps } from './checkbox';
 
-const config: ComponentMeta<typeof Checkbox> = {
+const config: Meta = {
   title: 'Checkbox',
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   component: Checkbox
 };
 export default config;
 
-const Template: ComponentStory<typeof Checkbox> = (args) => (
-  <Checkbox {...args} />
-);
+const Template: Story<CheckboxProps> = (args) => <Checkbox {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
+  label: 'Option',
+  size: 'md',
   checked: true,
   indeterminate: false,
   defaultChecked: true,

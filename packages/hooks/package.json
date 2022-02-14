@@ -1,6 +1,6 @@
 {
-  "name": "@flux-ui/checkbox",
-  "version": "0.0.2",
+  "name": "@flux-ui/hooks",
+  "version": "v0.0.2",
   "description": "An awesome React component library built with Radix UI Primitives & Stiches",
   "author": "Samuel Corsi-House <chouse.samuel@gmail.com>",
   "license": "MIT",
@@ -17,7 +17,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/flux-ui/flux-ui.git",
-    "directory": "packages/checkbox"
+    "directory": "packages/hooks"
   },
   "scripts": {
     "build": "tsup",
@@ -28,12 +28,5 @@
   "peerDependencies": {
     "react": ">=17.0.0",
     "react-dom": ">=17.0.0"
-  },
-  "dependencies": {
-    "@flux-ui/core": "workspace:*",
-    "@flux-ui/hooks": "workspace:*",
-    "@heroicons/react": "^1.0.5",
-    "@radix-ui/react-checkbox": "^0.1.4",
-    "@stitches/react": "^1.2.6"
   }
 }
