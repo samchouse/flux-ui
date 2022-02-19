@@ -1,5 +1,4 @@
 {
-  "$schema": "https://json.schemastore.org/tsconfig",
   "display": "Core",
   "extends": "../../tsconfig.json",
   "compilerOptions": {
@@ -7,7 +6,6 @@
     "lib": ["dom", "dom.iterable", "esnext"],
     "skipLibCheck": true,
     "strict": true,
-    "noEmit": true,
     "esModuleInterop": true,
     "module": "ESNext",
     "moduleResolution": "node",
@@ -15,7 +13,10 @@
     "isolatedModules": true,
     "jsx": "react",
     "importHelpers": true,
-    "declaration": true
+    "declaration": true,
+    "composite": true,
+    "rootDir": ".",
+    "baseUrl": "."
   },
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "dist"]
 }

@@ -31,6 +31,7 @@
   },
   "dependencies": {
     "@flux-ui/checkbox": "workspace:*",
-    "@flux-ui/core": "workspace:*"
+    "@flux-ui/core": "workspace:*",
+    "@flux-ui/hooks": "workspace:*"
   }
 }

@@ -4,6 +4,9 @@
   "plugins": ["@typescript-eslint", "prettier"],
   "extends": ["plugin:prettier/recommended"],
   "ignorePatterns": ["*.d.ts"],
+  "parserOptions": {
+    "project": "../../tsconfig.json"
+  },
   "rules": {
     "arrow-body-style": "error",
     "prefer-arrow-callback": "error",

@@ -3,10 +3,10 @@ const minimist = require('minimist');
 
 const args = minimist(process.argv.slice(2));
 const runner = new ESLint({
-  cwd: process.cwd(),
+  fix: args.fix,
   useEslintrc: true,
-  ignorePath: args['ignore-path'],
-  fix: args.fix
+  cwd: process.cwd(),
+  ignorePath: args['ignore-path']
 });
 
 const runESLint = async () => {
