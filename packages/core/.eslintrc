@@ -3,6 +3,9 @@
   "rules": {
     "react/jsx-filename-extension": ["error", { "extensions": [".tsx"] }]
   },
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
   "settings": {
     "react": {
       "version": "latest"

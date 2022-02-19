@@ -5,7 +5,7 @@
   "extends": ["plugin:prettier/recommended"],
   "ignorePatterns": ["*.d.ts"],
   "parserOptions": {
-    "project": "../../tsconfig.json"
+    "project": "./tsconfig.json"
   },
   "rules": {
     "arrow-body-style": "error",

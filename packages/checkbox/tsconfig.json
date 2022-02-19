@@ -2,6 +2,7 @@
   "display": "Checkbox",
   "extends": "../../tsconfig.json",
   "compilerOptions": {
+    "baseUrl": ".",
     "target": "ES5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "skipLibCheck": true,
@@ -13,10 +14,7 @@
     "isolatedModules": true,
     "jsx": "react",
     "importHelpers": true,
-    "declaration": true,
-    "composite": true,
-    "rootDir": ".",
-    "baseUrl": "."
+    "declaration": true
   },
   "exclude": ["node_modules", "dist"]
 }

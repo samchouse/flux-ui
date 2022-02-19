@@ -2,6 +2,7 @@
   "display": "React",
   "extends": "../../tsconfig.json",
   "compilerOptions": {
+    "baseUrl": ".",
     "target": "ES5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "skipLibCheck": true,
