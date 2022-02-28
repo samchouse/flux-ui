@@ -1,15 +1,15 @@
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 
-import { {{normalize name}}, {{normalize name}}Props } from './{{name}}';
+import { {{capitalize name}}, {{capitalize name}}Props } from './{{name}}';
 
 const config: Meta = {
-  title: '{{normalize name}}',
-  component: {{normalize name}}
+  title: '{{capitalize name}}',
+  component: {{capitalize name}}
 };
 export default config;
 
-const Template: Story<{{normalize name}}Props> = (args) => <{{normalize name}} {...args} />;
+const Template: Story<{{capitalize name}}Props> = (args) => <{{capitalize name}} {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {};

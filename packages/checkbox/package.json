@@ -33,7 +33,7 @@
     "@flux-ui/core": "workspace:*",
     "@flux-ui/hooks": "workspace:*",
     "@heroicons/react": "^1.0.5",
-    "@radix-ui/react-checkbox": "^0.1.4",
-    "@stitches/react": "^1.2.6"
+    "@radix-ui/react-checkbox": "^0.1.5",
+    "@radix-ui/react-label": "^0.1.5"
   }
 }

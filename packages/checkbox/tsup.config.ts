@@ -2,7 +2,7 @@ import { defineConfig } from 'tsup';
 
 export default defineConfig({
   name: 'checkbox',
-  target: 'es5',
+  target: 'esnext',
   format: ['cjs', 'esm'],
   entryPoints: ['src/index.ts'],
   dts: true,
