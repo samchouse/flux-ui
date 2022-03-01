@@ -108,7 +108,9 @@ const build = async () => {
         })
       ],
       external: (_) =>
-        (_.includes('node_modules') || _.includes('packages')) &&
+        (_.includes('node_modules') ||
+          _.includes('packages') ||
+          _.includes('@flux-ui/')) &&
         !_.includes(packageName.split('/')[1]) &&
         !_.includes('@swc/helpers'),
       treeshake: true
