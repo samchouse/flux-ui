@@ -2,9 +2,9 @@
   "display": "Default",
   "compilerOptions": {
     "baseUrl": ".",
+    "rootDir": ".",
     "composite": true,
     "declaration": true,
-    "declarationMap": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "inlineSources": false,
@@ -15,21 +15,7 @@
     "preserveWatchOutput": true,
     "skipLibCheck": true,
     "strict": true,
-    "resolveJsonModule": true,
-    "paths": {
-      "@flux-ui/*": ["packages/*/src"]
-    }
+    "resolveJsonModule": true
   },
-  "exclude": ["node_modules"],
-  "references": [
-    {
-      "path": "packages/core"
-    },
-    {
-      "path": "packages/hooks"
-    },
-    {
-      "path": "packages/checkbox"
-    }
-  ]
+  "exclude": ["node_modules", "dist"]
 }

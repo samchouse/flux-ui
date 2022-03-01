@@ -2,7 +2,6 @@
   "display": "Checkbox",
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "baseUrl": ".",
     "target": "ESNext",
     "lib": ["dom", "dom.iterable", "esnext"],
     "skipLibCheck": true,
@@ -14,7 +13,20 @@
     "isolatedModules": true,
     "jsx": "react-jsx",
     "importHelpers": true,
-    "declaration": true
+    "paths": {
+      "@flux-ui/*": ["packages/*/src"]
+    }
   },
-  "exclude": ["node_modules", "dist"]
+  "exclude": ["node_modules", "dist"],
+  "references": [
+    {
+      "path": "../react"
+    },
+    {
+      "path": "../core"
+    },
+    {
+      "path": "../hooks"
+    }
+  ]
 }

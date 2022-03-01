@@ -3,5 +3,6 @@
 .yarn/plugins/** binary
 
 # Config Files
+.swcrc text diff=json linguist-language=json
 .eslintrc text diff=json linguist-language=json
 .prettierrc text diff=json linguist-language=json

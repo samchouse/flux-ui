@@ -5,7 +5,10 @@
   "extends": ["plugin:prettier/recommended"],
   "ignorePatterns": ["*.d.ts"],
   "parserOptions": {
-    "project": "./tsconfig.json"
+    "sourceType": "module",
+    "tsconfigRootDir": ".",
+    "project": ["./tsconfig.json", "./packages/*/tsconfig.json"],
+    "EXPERIMENTAL_useSourceOfProjectReferenceRedirect": true
   },
   "rules": {
     "arrow-body-style": "error",

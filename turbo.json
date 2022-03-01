@@ -4,15 +4,15 @@
   "globalDependencies": ["scripts/eslint.js", ".prettierrc", ".eslintrc"],
   "pipeline": {
     "build": {
-      "dependsOn": ["^build"],
+      "dependsOn": ["lint", "^build"],
       "outputs": ["dist/**", ".next/**"]
     },
     "publish": {
-      "dependsOn": ["lint"],
+      "dependsOn": ["build"],
       "cache": false
     },
     "lint": {
-      "dependsOn": ["build"],
+      "dependsOn": [],
       "outputs": []
     },
     "watch": {

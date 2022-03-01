@@ -20,8 +20,7 @@
     "directory": "packages/checkbox"
   },
   "scripts": {
-    "build": "run -T tsup",
-    "watch": "run -T tsup --watch",
+    "build": "node ../../scripts/build.js",
     "lint": "node ../../scripts/eslint.js --ignore-path ../../.gitignore .",
     "publish": "yarn npm publish"
   },
