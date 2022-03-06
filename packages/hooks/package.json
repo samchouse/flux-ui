@@ -4,11 +4,11 @@
   "description": "An awesome React component library built with Radix UI Primitives & Stiches",
   "author": "Samuel Corsi-House <chouse.samuel@gmail.com>",
   "license": "MIT",
-  "main": "./dist/index.cjs.js",
-  "module": "./dist/index.esm.js",
-  "types": "./dist/index.d.ts",
+  "main": "./lib/cjs/index.js",
+  "module": "./lib/esm/index.js",
+  "types": "./lib/esm/index.d.ts",
   "files": [
-    "dist"
+    "lib"
   ],
   "sideEffects": false,
   "publishConfig": {
@@ -20,8 +20,8 @@
     "directory": "packages/hooks"
   },
   "scripts": {
-    "build": "node ../../scripts/build.js",
-    "lint": "node ../../scripts/eslint.js --ignore-path ../../.gitignore .",
+    "build": "run -T swc-node scripts/build.ts",
+    "lint": "run -T swc-node scripts/eslint.ts .",
     "publish": "yarn npm publish"
   },
   "peerDependencies": {

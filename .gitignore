@@ -2,7 +2,7 @@
 
 # build
 tsconfig.tsbuildinfo
-dist/
+lib/
 
 # dependencies
 node_modules

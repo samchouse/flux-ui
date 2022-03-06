@@ -5,7 +5,7 @@
   "pipeline": {
     "build": {
       "dependsOn": ["lint", "^build"],
-      "outputs": ["dist/**", ".next/**"]
+      "outputs": ["lib/**", ".next/**"]
     },
     "publish": {
       "dependsOn": ["build"],

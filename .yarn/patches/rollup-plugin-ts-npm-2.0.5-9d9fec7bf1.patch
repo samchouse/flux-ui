@@ -1,0 +1,65 @@
+diff --git a/dist/cjs/index.js b/dist/cjs/index.js
+index 92b5c22fc73caded33fa05cfabd6ca8815725018..b90996ab1cb3735d6090ddb6df3334b6a3a3a0a1 100644
+--- a/dist/cjs/index.js
++++ b/dist/cjs/index.js
+@@ -8271,6 +8271,21 @@ function typescriptRollupPlugin(pluginInputOptions = {}) {
+         // Return the emit output results to Rollup
+         return getSourceDescriptionFromEmitOutput(emitOutput);
+     };
++    const addFile = (fileName, text, dependencyCb) => {
++        // Add the file to the CompilerHost
++        host.add({ fileName, text, fromRollup: true });
++        // Add all dependencies of the file to the File Watcher if missing
++        const dependencies = host.getDependenciesForFile(fileName, true);
++        if (dependencies != null) {
++            for (const dependency of dependencies) {
++                const pickedDependency = pickResolvedModule(dependency, false);
++                if (pickedDependency == null)
++                    continue;
++                dependencyCb(pickedDependency);
++            }
++        }
++        return;
++    };
+     return {
+         name: PLUGIN_NAME,
+         /**
+@@ -8389,6 +8404,11 @@ function typescriptRollupPlugin(pluginInputOptions = {}) {
+                     const swc = await loadSwc();
+                     // Don't proceed if there is no minification config
+                     if (config == null) {
++			            const swcConfigResult = swcConfigFileFactory(chunk.filename);
++                        const { code: final, map } = await swc.transform(code, swcConfigResult);
++                        if (swcConfigResult != null) {
++                            return { code: final, map };
++                        }
+                         return updatedSourceDescription !== null && updatedSourceDescription !== void 0 ? updatedSourceDescription : null;
+                     }
+                     const updatedCode = updatedSourceDescription != null ? updatedSourceDescription.code : code;
+@@ -8424,7 +8444,7 @@ function typescriptRollupPlugin(pluginInputOptions = {}) {
+          * Transforms the given code and file
+          */
+         async transform(code, file) {
+-            var _a, _b, _c, _d, _e;
++            var _a, _b, _c, _d;
+             const normalizedFile = path__default["default"].normalize(file);
+             // If this file represents ROLLUP_PLUGIN_MULTI_ENTRY, we need to parse its' contents to understand which files it aliases.
+             // Following that, there's nothing more to do
+@@ -8475,7 +8495,7 @@ function typescriptRollupPlugin(pluginInputOptions = {}) {
+                     // Only pass the file through Typescript if it's extension is supported.
+                     // Otherwise, return whatever transformations that may have been applied to the source description already
+                     if (host.isSupportedFileName(normalizedFile) && !isJsInDisguise) {
+-                        sourceDescription = (_d = addAndEmitFile(normalizedFile, sourceDescription.code, dependency => this.addWatchFile(dependency))) !== null && _d !== void 0 ? _d : sourceDescription;
++                        addFile(normalizedFile, sourceDescription.code, dependency => this.addWatchFile(dependency))
+                     }
+                     const transpilationResult = await swc.transform(sourceDescription.code, Object.assign(Object.assign({}, swcConfigResult), { inputSourceMap: typeof sourceDescription.map === "string" ? sourceDescription.map : JSON.stringify(sourceDescription.map) }));
+                     if (transpilationResult == null || transpilationResult.code == null) {
+@@ -8484,7 +8504,7 @@ function typescriptRollupPlugin(pluginInputOptions = {}) {
+                     // Return the results
+                     return {
+                         code: transpilationResult.code,
+-                        map: (_e = transpilationResult.map) !== null && _e !== void 0 ? _e : undefined
++                        map: (_d = transpilationResult.map) !== null && _d !== void 0 ? _d : undefined
+                     };
+                 }
+                 // TypeScript

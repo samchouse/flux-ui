@@ -1,11 +1,10 @@
-const fs = require('fs');
-const { rollup } = require('rollup');
-const typescript = require('rollup-plugin-ts');
-const { Logger } = require('./utils/logger');
-const commonjs = require('@rollup/plugin-commonjs');
-const { nodeResolve } = require('@rollup/plugin-node-resolve');
+import commonjs from '@rollup/plugin-commonjs';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
+import fs from 'fs';
+import { rollup } from 'rollup';
+import typescript from 'rollup-plugin-ts';
 
-const logger = new Logger('build');
+import { Logger } from './utils/logger';
 
 const swcOptions = {
   jsc: {
@@ -23,50 +22,11 @@ const swcOptions = {
     },
     loose: false,
     minify: {
-      compress: {
-        arguments: true,
-        arrows: true,
-        booleans: true,
-        booleans_as_integers: false,
-        collapse_vars: true,
-        comparisons: true,
-        computed_props: true,
-        conditionals: true,
-        dead_code: true,
-        directives: true,
-        drop_console: true,
-        drop_debugger: true,
-        evaluate: true,
-        expression: false,
-        hoist_funs: false,
-        hoist_props: true,
-        hoist_vars: false,
-        if_return: true,
-        join_vars: true,
-        keep_classnames: false,
-        keep_fargs: true,
-        keep_fnames: false,
-        keep_infinity: false,
-        loops: true,
-        negate_iife: true,
-        properties: true,
-        reduce_funcs: false,
-        reduce_vars: false,
-        side_effects: true,
-        switches: true,
-        typeofs: true,
-        unsafe_arrows: false,
-        unsafe_comps: false,
-        unsafe_Function: false,
-        unsafe_math: false,
-        unsafe_symbols: false,
-        unsafe_methods: false,
-        unsafe_proto: false,
-        unsafe_regexp: false,
-        unsafe_undefined: false,
-        unused: true
-      },
-      mangle: true
+      compress: false,
+      mangle: true,
+      format: {
+        comments: true
+      }
     },
     target: 'es2022'
   },
@@ -76,25 +36,31 @@ const swcOptions = {
   }
 };
 
-const bundleDir = (type) => `dist/${type}`;
+const bundleDir = (type: string) => `lib/${type}`;
 
 const build = async () => {
   const chalk = (await import('chalk')).default;
   const packageName = require(`${process.cwd()}/package.json`).name;
 
   const startTime = Date.now();
+  const logger = new Logger('build', chalk);
 
   logger.info(`Building package ${chalk.cyan(packageName)}`);
 
   try {
     const bundle = await rollup({
       input: 'src/index.ts',
+      treeshake: true,
+      onwarn(warning, handler) {
+        if (['UNUSED_EXTERNAL_IMPORT'].includes(warning.code ?? '')) return;
+        return handler(warning);
+      },
       plugins: [
         {
           name: 'clean',
           buildStart: () => {
-            if (fs.existsSync('dist'))
-              fs.rmSync('dist', {
+            if (fs.existsSync('lib'))
+              fs.rmSync('lib', {
                 recursive: true,
                 force: true
               });
@@ -112,8 +78,7 @@ const build = async () => {
           _.includes('packages') ||
           _.includes('@flux-ui/')) &&
         !_.includes(packageName.split('/')[1]) &&
-        !_.includes('@swc/helpers'),
-      treeshake: true
+        !_.includes('@swc/helpers')
     });
 
     logger.info(`Building to ${chalk.cyan('cjs')} format...`);
@@ -137,7 +102,7 @@ const build = async () => {
     );
   } catch (err) {
     logger.error(`Failed to compile package: ${chalk.cyan(packageName)}`);
-    process.stdout.write(`${err.toString('minimal')}\n`);
+    process.stdout.write(`${(err as Error).stack}\n`);
     process.exit(1);
   }
 };

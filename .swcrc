@@ -2,10 +2,13 @@
   "jsc": {
     "parser": {
       "syntax": "typescript",
-      "dynamicImport": true
-    }
+      "dynamicImport": true,
+      "topLevelAwait": true
+    },
+    "target": "es2022"
   },
   "module": {
-    "type": "commonjs"
+    "type": "commonjs",
+    "ignoreDynamic": true
   }
 }

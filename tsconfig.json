@@ -17,6 +17,6 @@
     "strict": true,
     "resolveJsonModule": true
   },
-  "include": ["**/*.js", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules", "dist"]
+  "include": ["**/*.js", "**/*.ts", "**/*.tsx", "**/*.json"],
+  "exclude": ["node_modules", "lib"]
 }
