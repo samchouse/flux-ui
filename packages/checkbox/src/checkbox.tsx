@@ -1,56 +1,84 @@
-import { CheckIcon, MinusSmIcon } from '@heroicons/react/outline';
-import React, { useCallback, useEffect, useState } from 'react';
+import { useUuid } from '@flux-ui/hooks';
+import React, { forwardRef, useCallback, useEffect, useState } from 'react';
 
-import { StyledCheckbox, StyledIndicator } from './checkbox.styles';
+import { CheckboxIcon, CheckboxIconProps } from './checkbox-icon';
+import {
+  StyledCheckbox,
+  StyledIndicator,
+  StyledLabel,
+  StyledWrapper
+} from './checkbox.styles';
 
-type CheckedState = boolean | 'indeterminate';
+export type CheckedState = boolean | 'indeterminate';
 
 export interface CheckboxProps {
+  id?: string;
+  label?: string;
   checked?: boolean;
   disabled?: boolean;
   indeterminate?: boolean;
   defaultChecked?: boolean;
+  size?: 'sm' | 'md' | 'lg';
+  icon?: React.FC<CheckboxIconProps>;
 }
 
-export const Checkbox: React.FC<CheckboxProps> = ({
-  checked,
-  indeterminate,
-  defaultChecked,
-  ...props
-}: CheckboxProps) => {
-  const [selfChecked, setSelfChecked] = useState<CheckedState>(
-    defaultChecked ?? false
-  );
-
-  useEffect(() => {
-    setSelfChecked(
-      indeterminate
-        ? checked === true
-          ? 'indeterminate'
-          : false
-        : checked ?? defaultChecked ?? false
+export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
+  (
+    {
+      id,
+      size,
+      label,
+      checked,
+      indeterminate,
+      defaultChecked,
+      icon: Icon = CheckboxIcon,
+      ...props
+    }: CheckboxProps,
+    ref
+  ) => {
+    const uuid = useUuid(id);
+    const [selfChecked, setSelfChecked] = useState<CheckedState>(
+      defaultChecked ?? false
     );
-  }, [checked, defaultChecked, indeterminate]);
 
-  const handleChange = useCallback(() => {
-    if (indeterminate)
-      return setSelfChecked(
-        selfChecked === 'indeterminate' ? false : 'indeterminate'
+    useEffect(() => {
+      setSelfChecked(
+        indeterminate
+          ? checked === true
+            ? 'indeterminate'
+            : false
+          : checked ?? defaultChecked ?? false
       );
-    setSelfChecked(typeof selfChecked === 'boolean' ? !selfChecked : false);
-  }, [selfChecked, indeterminate]);
+    }, [checked, defaultChecked, indeterminate]);
 
-  return (
-    <StyledCheckbox
-      checked={selfChecked}
-      onCheckedChange={handleChange}
-      defaultChecked={defaultChecked}
-      {...props}
-    >
-      <StyledIndicator>
-        {selfChecked === true && <CheckIcon />}
-        {selfChecked === 'indeterminate' && <MinusSmIcon />}
-      </StyledIndicator>
-    </StyledCheckbox>
-  );
-};
+    const handleChange = useCallback(() => {
+      if (indeterminate)
+        return setSelfChecked(
+          selfChecked === 'indeterminate' ? false : 'indeterminate'
+        );
+      setSelfChecked(typeof selfChecked === 'boolean' ? !selfChecked : false);
+    }, [selfChecked, indeterminate]);
+
+    return (
+      <StyledWrapper size={size}>
+        <StyledCheckbox
+          id={uuid}
+          ref={ref}
+          checked={selfChecked}
+          onCheckedChange={handleChange}
+          defaultChecked={defaultChecked}
+          {...props}
+        >
+          <StyledIndicator forceMount>
+            {selfChecked !== false && (
+              <Icon indeterminate={selfChecked === 'indeterminate'} />
+            )}
+          </StyledIndicator>
+        </StyledCheckbox>
+        <StyledLabel htmlFor={uuid}>{label}</StyledLabel>
+      </StyledWrapper>
+    );
+  }
+);
+
+Checkbox.displayName = 'Checkbox';

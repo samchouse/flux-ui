@@ -1,12 +1,13 @@
-const { ESLint } = require('eslint');
-const minimist = require('minimist');
+import { ESLint } from 'eslint';
+import minimist from 'minimist';
+import path from 'path';
 
 const args = minimist(process.argv.slice(2));
 const runner = new ESLint({
-  cwd: process.cwd(),
+  fix: args.fix,
   useEslintrc: true,
-  ignorePath: args['ignore-path'],
-  fix: args.fix
+  cwd: process.cwd(),
+  ignorePath: path.join(__dirname, '../.gitignore')
 });
 
 const runESLint = async () => {

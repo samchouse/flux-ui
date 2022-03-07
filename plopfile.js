@@ -1,6 +1,5 @@
 const fs = require('fs-extra');
-
-const { version } = require('./package.json');
+const { camelCase } = require('lodash');
 
 /** @type {import('plop').CustomActionFunction} */
 const moveESLintRc = async (answers) => {
@@ -24,11 +23,14 @@ const updateLockfile = async () => {
 };
 
 const config = (/** @type {import('plop').NodePlopAPI} */ plop) => {
-  plop.setHelper(
-    'normalize',
-    (name) => `${name[0].toUpperCase()}${name.slice(1)}`
-  );
+  // Helpers
+  plop.setHelper('normalize', (text) => startCase(text));
+  plop.setHelper('capitalize', (text) => {
+    const camel = camelCase(text);
+    return camel[0].toUpperCase() + camel.slice(1);
+  });
 
+  // Generators
   plop.setGenerator('component', {
     description: 'New Flux UI component',
     prompts: [
@@ -36,17 +38,6 @@ const config = (/** @type {import('plop').NodePlopAPI} */ plop) => {
         type: 'input',
         name: 'name',
         message: "New component's name"
-      },
-      {
-        type: 'input',
-        name: 'version',
-        message: "New component's version",
-        default: `v${version}`,
-        validate: (input) =>
-          input.match(/^v[0-9]+.[0-9]+.[0-9]+(-canary.[0-9]+)?$/)
-            ? true
-            : 'Enter a valid version number',
-        transformer: (input) => input.replace(/^v/, '')
       }
     ],
     actions: [

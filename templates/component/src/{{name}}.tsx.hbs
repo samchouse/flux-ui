@@ -1,3 +1,9 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 
-export const {{normalize name}} = () => <></>;
+export interface {{capitalize name}}Props {}
+
+export const {{capitalize name}} = forwardRef<unknown, {{capitalize name}}Props>(
+  ({ ...props }: {{capitalize name}}Props, ref) => <></>
+);
+
+{{capitalize name}}.displayName = '{{capitalize name}}';

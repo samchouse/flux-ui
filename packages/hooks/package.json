@@ -1,5 +1,5 @@
 {
-  "name": "@flux-ui/core",
+  "name": "@flux-ui/hooks",
   "version": "0.0.2",
   "description": "An awesome React component library built with Radix UI Primitives & Stiches",
   "author": "Samuel Corsi-House <chouse.samuel@gmail.com>",
@@ -17,7 +17,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/flux-ui/flux-ui.git",
-    "directory": "packages/core"
+    "directory": "packages/hooks"
   },
   "scripts": {
     "build": "run -T swc-node scripts/build.ts",
@@ -27,8 +27,5 @@
   "peerDependencies": {
     "react": ">=17.0.0",
     "react-dom": ">=17.0.0"
-  },
-  "dependencies": {
-    "@stitches/react": "^1.2.7"
   }
 }

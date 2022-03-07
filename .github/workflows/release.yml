@@ -74,8 +74,7 @@ jobs:
           OUTPUT: CHANGES.md
 
       - name: Setup NPM Auth
-        shell: bash
-        run: 'echo npmAuthToken: ${{ secrets.NPM_TOKEN }} >> .yarnrc.yml'
+        run: 'yarn config set -H npmAuthToken ${{ secrets.NPM_TOKEN }}'
 
       - name: Install Dependencies
         run: yarn --immutable

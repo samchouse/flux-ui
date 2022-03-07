@@ -1,11 +1,6 @@
 {
-  "extends": [
-    "marine/prettier/react",
-    "plugin:storybook/recommended",
-    "../../.eslintrc"
-  ],
+  "extends": ["marine/prettier/react", "../../.eslintrc"],
   "rules": {
-    "react/prop-types": ["off"],
     "react/jsx-filename-extension": ["error", { "extensions": [".tsx"] }]
   },
   "settings": {

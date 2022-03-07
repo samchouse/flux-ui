@@ -1,5 +1,5 @@
 {
-  "display": "Core",
+  "display": "Hooks",
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "target": "ESNext",
@@ -23,7 +23,7 @@
       "path": "../react"
     },
     {
-      "path": "../hooks"
+      "path": "../core"
     },
     {
       "path": "../checkbox"

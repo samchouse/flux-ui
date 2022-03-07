@@ -1,17 +1,18 @@
 {
   "$schema": "https://turborepo.com/schema.json",
   "baseBranch": "origin/main",
+  "globalDependencies": ["scripts/eslint.js", ".prettierrc", ".eslintrc"],
   "pipeline": {
     "build": {
-      "dependsOn": ["^build"],
-      "outputs": ["dist/**", ".next/**"]
+      "dependsOn": ["lint", "^build"],
+      "outputs": ["lib/**", ".next/**"]
     },
     "publish": {
-      "dependsOn": ["lint"],
+      "dependsOn": ["build"],
       "cache": false
     },
     "lint": {
-      "dependsOn": ["build"],
+      "dependsOn": [],
       "outputs": []
     },
     "watch": {

@@ -4,6 +4,12 @@
   "plugins": ["@typescript-eslint", "prettier"],
   "extends": ["plugin:prettier/recommended"],
   "ignorePatterns": ["*.d.ts"],
+  "parserOptions": {
+    "sourceType": "module",
+    "tsconfigRootDir": ".",
+    "project": ["./tsconfig.json", "./packages/*/tsconfig.json"],
+    "EXPERIMENTAL_useSourceOfProjectReferenceRedirect": true
+  },
   "rules": {
     "arrow-body-style": "error",
     "prefer-arrow-callback": "error",
