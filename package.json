@@ -42,7 +42,6 @@
     "@storybook/addon-essentials": "^6.4.19",
     "@storybook/addon-links": "^6.4.19",
     "@storybook/react": "^6.4.19",
-    "@swc/cli": "^0.1.55",
     "@swc/core": "^1.2.154",
     "@swc/helpers": "^0.3.6",
     "@swc/register": "^0.1.10",
