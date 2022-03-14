@@ -12,10 +12,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "react-jsx",
-    "importHelpers": true,
-    "paths": {
-      "@flux-ui/*": ["packages/*/src"]
-    }
+    "importHelpers": true
   },
   "exclude": ["node_modules", "lib"],
   "references": [
