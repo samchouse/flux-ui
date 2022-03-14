@@ -1,5 +1,5 @@
 import { useUuid } from '@flux-ui/hooks';
-import React, { forwardRef, useCallback, useEffect, useState } from 'react';
+import { forwardRef, useCallback, useEffect, useState } from 'react';
 
 import { CheckboxIcon, CheckboxIconProps } from './checkbox-icon';
 import {

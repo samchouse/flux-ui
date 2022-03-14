@@ -1,5 +1,4 @@
 import { CheckIcon, MinusIcon } from '@heroicons/react/solid';
-import React from 'react';
 
 export interface CheckboxIconProps {
   indeterminate: boolean;

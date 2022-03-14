@@ -5,7 +5,7 @@
     "../../.eslintrc"
   ],
   "rules": {
-    "react/prop-types": ["off"],
+    "react/react-in-jsx-scope": ["off"],
     "react/jsx-filename-extension": ["error", { "extensions": [".tsx"] }]
   },
   "settings": {
