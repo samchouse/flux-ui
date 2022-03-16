@@ -1,3 +1,5 @@
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+
 module.exports = {
   stories: ['../packages/**/*.stories.tsx'],
   addons: [
@@ -8,5 +10,13 @@ module.exports = {
   framework: '@storybook/react',
   features: {
     postcss: false
+  },
+  webpackFinal: async (config) => {
+    config.resolve.plugins.push(
+      new TsconfigPathsPlugin({
+        /* options: see below */
+      })
+    );
+    return config;
   }
 };
