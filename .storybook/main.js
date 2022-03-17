@@ -1,4 +1,4 @@
-const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+const tsconfigPaths = require('vite-tsconfig-paths').default;
 
 module.exports = {
   stories: ['../packages/**/*.stories.tsx'],
@@ -11,12 +11,11 @@ module.exports = {
   features: {
     postcss: false
   },
-  webpackFinal: async (config) => {
-    config.resolve.plugins.push(
-      new TsconfigPathsPlugin({
-        /* options: see below */
-      })
-    );
+  core: {
+    builder: 'storybook-builder-vite'
+  },
+  async viteFinal(config) {
+    config.plugins.push(tsconfigPaths());
     return config;
   }
 };
