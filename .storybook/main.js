@@ -9,7 +9,7 @@ module.exports = {
   ],
   framework: '@storybook/react',
   features: {
-    postcss: false
+    storyStoreV7: true
   },
   core: {
     builder: 'storybook-builder-vite'
