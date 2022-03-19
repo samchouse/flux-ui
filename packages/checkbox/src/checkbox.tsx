@@ -19,6 +19,21 @@ export interface CheckboxProps {
   indeterminate?: boolean;
   defaultChecked?: boolean;
   size?: 'sm' | 'md' | 'lg';
+  radius?: 'sm' | 'md' | 'lg';
+  color?:
+    | 'blue'
+    | 'cyan'
+    | 'teal'
+    | 'indigo'
+    | 'violet'
+    | 'purple'
+    | 'pink'
+    | 'red'
+    | 'green'
+    | 'lime'
+    | 'yellow'
+    | 'orange'
+    | 'black';
   icon?: React.FC<CheckboxIconProps>;
 }
 
@@ -28,6 +43,8 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
       id,
       size,
       label,
+      color,
+      radius,
       checked,
       disabled,
       indeterminate,
@@ -62,7 +79,7 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
     }, [disabled, selfChecked, indeterminate]);
 
     return (
-      <StyledWrapper size={size}>
+      <StyledWrapper size={size} color={color} radius={radius}>
         <StyledCheckbox
           id={uuid}
           ref={ref}

@@ -14,6 +14,7 @@ export const Default = Template.bind({});
 Default.args = {
   label: 'Option',
   size: 'md',
+  color: 'blue',
   checked: true,
   indeterminate: false,
   defaultChecked: true,
