@@ -95,9 +95,11 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
             )}
           </StyledIndicator>
         </StyledCheckbox>
-        <StyledLabel role="checkbox" htmlFor={uuid}>
-          {label}
-        </StyledLabel>
+        {label && (
+          <StyledLabel role="checkbox" htmlFor={uuid}>
+            {label}
+          </StyledLabel>
+        )}
       </StyledWrapper>
     );
   }

@@ -11,12 +11,10 @@ const require = createRequire(import.meta.url);
 const getPackageJsons = async () => {
   const { workspaces } = require('../package.json');
 
-  return (
-    await globby(
-      workspaces.map((ws) => path.join(ws, 'package.json')),
-      { cwd: process.cwd() }
-    )
-  ).concat([path.join(process.cwd(), 'package.json')]);
+  return await globby(
+    workspaces.map((ws) => path.join(ws, 'package.json')),
+    { cwd: process.cwd() }
+  );
 };
 
 const release = async (version) => {

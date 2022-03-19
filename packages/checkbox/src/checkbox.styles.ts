@@ -100,13 +100,14 @@ export const StyledCheckbox = styled(CheckboxPrimitive.Root, {
   all: 'unset',
   border: 'none',
   display: 'flex',
+  color: '$gray50',
   cursor: 'pointer',
-  background: '$$normalColor',
   alignItems: 'center',
-  borderRadius: '$$radius',
   width: '$$checkboxSize',
   height: '$$checkboxSize',
+  borderRadius: '$$radius',
   justifyContent: 'center',
+  background: '$$normalColor',
   transition: 'all 250ms ease',
   '&:hover': {
     background: '$$darkColor'
@@ -121,9 +122,6 @@ export const StyledCheckbox = styled(CheckboxPrimitive.Root, {
         '&:hover': {
           background: '$gray300'
         }
-      },
-      false: {
-        color: '$gray50'
       }
     },
     checked: {
@@ -143,6 +141,7 @@ export const StyledCheckbox = styled(CheckboxPrimitive.Root, {
 export const StyledIndicator = styled(CheckboxPrimitive.Indicator, {
   all: 'unset',
   display: 'flex',
+  color: 'inherit',
   width: '$$iconSize',
   height: '$$iconSize',
   '& svg': {

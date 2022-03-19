@@ -88,8 +88,9 @@ jobs:
       - name: Push Changelog
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: 'chore(release): push changelog for v${{ fromJSON(steps.canary-meta.outputs.result).version }}'
+          branch: main
           file_pattern: CHANGELOG.md
+          commit_message: 'chore(release): push changelog for v${{ fromJSON(steps.canary-meta.outputs.result).version }}'
 
       - name: Set Release Body
         id: release

@@ -1,10 +1,34 @@
 # Changelog
 
-## [unreleased]
+## [0.0.3](https://github.com/Xenfo/flux-ui/compare/v0.0.2...v0.0.3) - (2022-03-19)
 
 ### Bug Fixes
 
 - **Scripts:** Release tagging (#20) ([6a22a52](https://github.com/Xenfo/flux-ui/commit/6a22a5228de3f325069dbaf63c2f17327bb725db))
+- **Misc:** Tsc references (#36) ([4445e26](https://github.com/Xenfo/flux-ui/commit/4445e26a62c207c070b5a583dc4fab260b9c716c))
+- **Templates:** Update template configs (#37) ([6691a93](https://github.com/Xenfo/flux-ui/commit/6691a931d73d47bc74f20935f294d59c06cce0e0))
+
+### CI
+
+- **Misc:** Fix release changelog (#22) ([3c49341](https://github.com/Xenfo/flux-ui/commit/3c4934163f7a73f250698ec8574b5d53b30e7ba7))
+
+### Features
+
+- **Misc:** Issue templates ([4345802](https://github.com/Xenfo/flux-ui/commit/4345802ef6f009920b899de5616b419c71d081ee))
+- **Misc:** Update issue templates ([351a8dc](https://github.com/Xenfo/flux-ui/commit/351a8dc7208deab1bc5418507ee89f8f757e5c13))
+- **Checkbox:** Add variants (#24) ([fb265e2](https://github.com/Xenfo/flux-ui/commit/fb265e2d85f295f39fa6a93b4716cc86d8b7d671))
+- **Checkbox:** Variants (#39) ([fe5b0d1](https://github.com/Xenfo/flux-ui/commit/fe5b0d1efe1b4a4ebc61ff3321ce12700c18d3ea))
+
+### Miscellaneous Tasks
+
+- **Deps:** Update nextjs monorepo to v12.1.0 (#25) ([f4c8130](https://github.com/Xenfo/flux-ui/commit/f4c8130807e9cfba8569465891fdcf3f8c3e9cd3))
+- **Deps:** Update yarn to v3.2.0 (#26) ([330870b](https://github.com/Xenfo/flux-ui/commit/330870b482c6a9dcd0e3cc5bf567b1654fceacbe))
+- **Deps:** Update actions/setup-node action to v3 (#27) ([94d9c8d](https://github.com/Xenfo/flux-ui/commit/94d9c8da5285d53e79607bcd121edab5fd7e44cd))
+- **Misc:** Add pr template (#31) ([b094a5f](https://github.com/Xenfo/flux-ui/commit/b094a5f825f22ba1b2962e439b207a79a6c5dffa))
+- **Deps:** Update actions/checkout action to v3 (#32) ([0efbcb6](https://github.com/Xenfo/flux-ui/commit/0efbcb63d0f5650a9dd570144e30319ca20d8134))
+- **Deps:** Update dependency @types/react to v17.0.40 (#33) ([d93fb6d](https://github.com/Xenfo/flux-ui/commit/d93fb6dd4f383f2359cdda4b7997df0d3a525ffb))
+- **Deps:** Upgrade deps (#35) ([ff66f3f](https://github.com/Xenfo/flux-ui/commit/ff66f3ff135c3065e12202e7e8621cce50c832e4))
+- **Deps:** Update dependency @types/react to v17.0.41 (#38) ([ccd36ad](https://github.com/Xenfo/flux-ui/commit/ccd36ad07b2c272903c2757e07c751c64a8cc2c4))
 
 ## [0.0.2](https://github.com/Xenfo/flux-ui/compare/v0.0.1...v0.0.2) - (2022-02-12)
 
@@ -51,3 +75,4 @@
 ### Features
 
 - **Lib:** Initial commit ([db1a807](https://github.com/Xenfo/flux-ui/commit/db1a807ad31bbb9921abf6ea81ddd51116fdb73f))
+
