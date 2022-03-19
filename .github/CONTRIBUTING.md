@@ -2,9 +2,9 @@
 
 > Please read the public [roadmap][roadmap] before contributing
 
-[roadmap]: https://github.com/flux-ui/flux-ui/discussions/2
-[fork]: https://github.com/flux-ui/flux-ui/fork
-[pr]: https://github.com/flux-ui/flux-ui/compare
+[roadmap]: https://github.com/Xenfo/flux-ui/discussions/2
+[fork]: https://github.com/Xenfo/flux-ui/fork
+[pr]: https://github.com/Xenfo/flux-ui/compare
 [code-of-conduct]: CODE_OF_CONDUCT.md
 
 Hi there! We're thrilled that you'd like to contribute to this project. Your help is essential for keeping it great.
