@@ -1,7 +1,7 @@
 import commonjs from '@rollup/plugin-commonjs';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
-import fs from 'fs';
 import { rollup } from 'rollup';
+import del from 'rollup-plugin-delete';
 import typescript from 'rollup-plugin-ts';
 
 import { Logger } from './utils/logger';
@@ -56,16 +56,9 @@ const build = async () => {
         return handler(warning);
       },
       plugins: [
-        {
-          name: 'clean',
-          buildStart: () => {
-            if (fs.existsSync('lib'))
-              fs.rmSync('lib', {
-                recursive: true,
-                force: true
-              });
-          }
-        },
+        del({
+          targets: ['lib/']
+        }),
         commonjs(),
         nodeResolve(),
         typescript({

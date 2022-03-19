@@ -23,12 +23,13 @@
     "format": "prettier -w --ignore-path .prettierignore .",
     "upgrade": "node scripts/upgrade.mjs",
     "release": "node scripts/release.mjs",
-    "sb:start": "NODE_OPTIONS=--openssl-legacy-provider start-storybook -p 6006",
-    "sb:build": "NODE_OPTIONS=--openssl-legacy-provider build-storybook",
+    "sb:start": "start-storybook -p 6006",
+    "sb:build": "build-storybook",
     "chromatic": "chromatic --build-script-name=sb:build",
     "swc-node": "INIT=$INIT_CWD node -r @swc/register -r ./scripts/utils/prerun.ts"
   },
   "resolutions": {
+    "@storybook/react/webpack": "^5.70.0",
     "rollup-plugin-ts@2.0.5": "patch:rollup-plugin-ts@npm:2.0.5#.yarn/patches/rollup-plugin-ts-npm-2.0.5-9d9fec7bf1.patch"
   },
   "devDependencies": {
@@ -37,10 +38,13 @@
     "@commitlint/cz-commitlint": "^16.2.3",
     "@rollup/plugin-commonjs": "^21.0.2",
     "@rollup/plugin-node-resolve": "^13.1.3",
+    "@storybook/addon-a11y": "^6.4.19",
     "@storybook/addon-essentials": "^6.4.19",
     "@storybook/addon-links": "^6.4.19",
+    "@storybook/builder-webpack5": "^6.4.19",
+    "@storybook/manager-webpack5": "^6.4.19",
     "@storybook/react": "^6.4.19",
-    "@swc/core": "^1.2.157",
+    "@swc/core": "^1.2.159",
     "@swc/helpers": "^0.3.8",
     "@swc/register": "^0.1.10",
     "@trivago/prettier-plugin-sort-imports": "^3.2.0",
@@ -63,20 +67,18 @@
     "globby": "^13.1.1",
     "husky": "^7.0.4",
     "is-ci": "^3.0.1",
-    "lint-staged": "^12.3.6",
+    "lint-staged": "^12.3.7",
     "lodash": "^4.17.21",
     "minimist": "^1.2.5",
-    "npm-check-updates": "^12.5.3",
+    "npm-check-updates": "^12.5.4",
     "plop": "^3.0.5",
     "prettier": "^2.6.0",
     "rollup": "^2.70.1",
+    "rollup-plugin-delete": "^2.0.0",
     "rollup-plugin-ts": "patch:rollup-plugin-ts@^2.0.5#./.yarn/patches/rollup-plugin-ts-npm-2.0.5-9d9fec7bf1.patch",
-    "storybook-builder-vite": "^0.1.20",
     "storybook-dark-mode": "^1.0.9",
     "turbo": "^1.1.6",
-    "typescript": "^4.6.2",
-    "vite": "^2.8.6",
-    "vite-tsconfig-paths": "^3.4.1"
+    "typescript": "^4.6.2"
   },
   "config": {
     "commitizen": {

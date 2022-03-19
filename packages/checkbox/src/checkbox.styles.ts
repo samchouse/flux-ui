@@ -36,7 +36,7 @@ export const StyledCheckbox = styled(CheckboxPrimitive.Root, {
   cursor: 'pointer',
   background: '$info',
   alignItems: 'center',
-  borderRadius: '0.25rem',
+  borderRadius: '$md',
   width: '$$checkboxSize',
   height: '$$checkboxSize',
   justifyContent: 'center',
@@ -47,7 +47,7 @@ export const StyledCheckbox = styled(CheckboxPrimitive.Root, {
   variants: {
     disabled: {
       true: {
-        // opacity: 0.5,
+        opacity: 0.5,
         color: '$gray500',
         cursor: 'not-allowed',
         background: '$gray300',

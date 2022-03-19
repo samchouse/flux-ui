@@ -29,6 +29,7 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
       size,
       label,
       checked,
+      disabled,
       indeterminate,
       defaultChecked,
       icon: Icon = CheckboxIcon,
@@ -52,18 +53,20 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
     }, [checked, defaultChecked, indeterminate]);
 
     const handleChange = useCallback(() => {
+      if (disabled) return;
       if (indeterminate)
         return setSelfChecked(
           selfChecked === 'indeterminate' ? false : 'indeterminate'
         );
       setSelfChecked(typeof selfChecked === 'boolean' ? !selfChecked : false);
-    }, [selfChecked, indeterminate]);
+    }, [disabled, selfChecked, indeterminate]);
 
     return (
       <StyledWrapper size={size}>
         <StyledCheckbox
           id={uuid}
           ref={ref}
+          disabled={disabled}
           checked={selfChecked}
           onCheckedChange={handleChange}
           defaultChecked={defaultChecked}
@@ -75,7 +78,9 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
             )}
           </StyledIndicator>
         </StyledCheckbox>
-        <StyledLabel htmlFor={uuid}>{label}</StyledLabel>
+        <StyledLabel role="checkbox" htmlFor={uuid}>
+          {label}
+        </StyledLabel>
       </StyledWrapper>
     );
   }

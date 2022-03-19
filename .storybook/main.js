@@ -1,9 +1,8 @@
-const tsconfigPaths = require('vite-tsconfig-paths').default;
-
 module.exports = {
   stories: ['../packages/**/*.stories.tsx'],
   addons: [
     'storybook-dark-mode',
+    '@storybook/addon-a11y',
     '@storybook/addon-links',
     '@storybook/addon-essentials'
   ],
@@ -12,10 +11,6 @@ module.exports = {
     storyStoreV7: true
   },
   core: {
-    builder: 'storybook-builder-vite'
-  },
-  async viteFinal(config) {
-    config.plugins.push(tsconfigPaths());
-    return config;
+    builder: 'webpack5'
   }
 };
