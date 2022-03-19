@@ -1,8 +1,8 @@
 {
   "root": true,
   "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint", "prettier"],
   "extends": ["plugin:prettier/recommended"],
+  "plugins": ["@typescript-eslint", "prettier"],
   "ignorePatterns": ["*.d.ts"],
   "parserOptions": {
     "sourceType": "module",

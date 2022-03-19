@@ -19,7 +19,7 @@ body = """
         {% if commit.scope %}\
             **{{ commit.scope | upper_first }}:** \
         {% endif %}\
-        {{ commit.message | upper_first }} ([{{ commit.id | truncate(length=7, end="") }}](https://github.com/flux-ui/flux-ui/commit/{{ commit.id }}))\
+        {{ commit.message | upper_first }} ([{{ commit.id | truncate(length=7, end="") }}](https://github.com/Xenfo/flux-ui/commit/{{ commit.id }}))\
     {% endfor %}
 {% endfor %}
 """

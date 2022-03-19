@@ -19,6 +19,21 @@ export interface CheckboxProps {
   indeterminate?: boolean;
   defaultChecked?: boolean;
   size?: 'sm' | 'md' | 'lg';
+  radius?: 'sm' | 'md' | 'lg';
+  color?:
+    | 'blue'
+    | 'cyan'
+    | 'teal'
+    | 'indigo'
+    | 'violet'
+    | 'purple'
+    | 'pink'
+    | 'red'
+    | 'green'
+    | 'lime'
+    | 'yellow'
+    | 'orange'
+    | 'black';
   icon?: React.FC<CheckboxIconProps>;
 }
 
@@ -28,7 +43,10 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
       id,
       size,
       label,
+      color,
+      radius,
       checked,
+      disabled,
       indeterminate,
       defaultChecked,
       icon: Icon = CheckboxIcon,
@@ -52,18 +70,20 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
     }, [checked, defaultChecked, indeterminate]);
 
     const handleChange = useCallback(() => {
+      if (disabled) return;
       if (indeterminate)
         return setSelfChecked(
           selfChecked === 'indeterminate' ? false : 'indeterminate'
         );
       setSelfChecked(typeof selfChecked === 'boolean' ? !selfChecked : false);
-    }, [selfChecked, indeterminate]);
+    }, [disabled, selfChecked, indeterminate]);
 
     return (
-      <StyledWrapper size={size}>
+      <StyledWrapper size={size} color={color} radius={radius}>
         <StyledCheckbox
           id={uuid}
           ref={ref}
+          disabled={disabled}
           checked={selfChecked}
           onCheckedChange={handleChange}
           defaultChecked={defaultChecked}
@@ -75,7 +95,9 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
             )}
           </StyledIndicator>
         </StyledCheckbox>
-        <StyledLabel htmlFor={uuid}>{label}</StyledLabel>
+        <StyledLabel role="checkbox" htmlFor={uuid}>
+          {label}
+        </StyledLabel>
       </StyledWrapper>
     );
   }

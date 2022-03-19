@@ -8,9 +8,9 @@ body = """
 {% if version %}\
     ## [{{ version | trim_start_matches(pat="v") }}]\
     {% if previous.version %}\
-        (https://github.com/flux-ui/flux-ui/compare/{{ previous.version }}...{{ version }})\
+        (https://github.com/Xenfo/flux-ui/compare/{{ previous.version }}...{{ version }})\
     {% else %}\
-        (https://github.com/flux-ui/flux-ui/tree/{{ version }})\
+        (https://github.com/Xenfo/flux-ui/tree/{{ version }})\
     {% endif %} \
     - ({{ timestamp | date(format="%Y-%m-%d") }})
 {% else %}\
@@ -25,7 +25,7 @@ body = """
         {% if commit.scope %}\
             **{{ commit.scope | upper_first }}:** \
         {% endif %}\
-        {{ commit.message | upper_first }} ([{{ commit.id | truncate(length=7, end="") }}](https://github.com/flux-ui/flux-ui/commit/{{ commit.id }}))\
+        {{ commit.message | upper_first }} ([{{ commit.id | truncate(length=7, end="") }}](https://github.com/Xenfo/flux-ui/commit/{{ commit.id }}))\
     {% endfor %}
 {% endfor %}\n
 """
