@@ -16,7 +16,6 @@
     "commit": "cz",
     "new": "plop",
     "build": "FORCE_COLOR=1 turbo run build",
-    "watch": "FORCE_COLOR=1 turbo run watch --parallel",
     "dev": "FORCE_COLOR=1 turbo run dev --parallel",
     "lint": "FORCE_COLOR=1 turbo run lint",
     "publish": "FORCE_COLOR=1 turbo run publish",

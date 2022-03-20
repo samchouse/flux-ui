@@ -1,10 +1,10 @@
 import { ChalkInstance } from 'chalk';
 
 export class Logger {
-  private name: string;
-  private chalk: ChalkInstance;
+  private readonly name: string;
+  private readonly chalk: ChalkInstance;
 
-  constructor(name: string, chalk: ChalkInstance) {
+  public constructor(name: string, chalk: ChalkInstance) {
     this.name = name;
     this.chalk = chalk;
   }
@@ -12,20 +12,20 @@ export class Logger {
   private log(message: string, breaks?: number) {
     process.stdout.write(
       `${this.chalk.cyan(`[${this.name}]`)} ${message}${
-        !breaks ? '\n' : '\n'.repeat(breaks)
+        breaks ? '\n'.repeat(breaks) : '\n'
       }`
     );
   }
 
-  info(message: string, breaks?: number) {
+  public info(message: string, breaks?: number) {
     this.log(`${this.chalk.cyan('→')} ${message}`, breaks);
   }
 
-  success(message: string, breaks?: number) {
+  public success(message: string, breaks?: number) {
     this.log(`${this.chalk.green('✓')} ${message}`, breaks);
   }
 
-  error(message: string, breaks?: number) {
+  public error(message: string, breaks?: number) {
     this.log(`${this.chalk.red('✗')} ${message}`, breaks);
   }
 }

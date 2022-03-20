@@ -21,7 +21,7 @@
   },
   "scripts": {
     "build": "run -T swc-node scripts/build.ts",
-    "lint": "run -T swc-node scripts/eslint.ts .",
+    "lint": "run -T swc-node scripts/eslint.ts",
     "publish": "yarn npm publish"
   },
   "peerDependencies": {

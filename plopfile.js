@@ -1,5 +1,5 @@
 const fs = require('fs-extra');
-const { camelCase } = require('lodash');
+const { camelCase, startCase } = require('lodash');
 
 /** @type {import('plop').CustomActionFunction} */
 const moveESLintRc = async (answers) => {
