@@ -1,12 +1,3 @@
 {
-  "extends": ["marine/prettier/react", "../../.eslintrc"],
-  "rules": {
-    "react/react-in-jsx-scope": ["off"],
-    "react/jsx-filename-extension": ["error", { "extensions": [".tsx"] }]
-  },
-  "settings": {
-    "react": {
-      "version": "detect"
-    }
-  }
+  "extends": "../../.eslintrc"
 }

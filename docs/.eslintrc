@@ -1,6 +1,3 @@
 {
-  "extends": ["marine/prettier/react", "next/core-web-vitals", "../.eslintrc"],
-  "rules": {
-    "react/jsx-filename-extension": ["error", { "extensions": [".tsx"] }]
-  }
+  "extends": ["next/core-web-vitals", "../.eslintrc"]
 }

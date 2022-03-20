@@ -40,7 +40,8 @@ const bundleDir = (type: string) => `lib/${type}`;
 
 const build = async () => {
   const chalk = (await import('chalk')).default;
-  const packageName = require(`${process.cwd()}/package.json`).name;
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-require-imports, @typescript-eslint/no-var-requires
+  const packageName = require(`${process.cwd()}/package.json`).name as string;
 
   const startTime = Date.now();
   const logger = new Logger('build', chalk);
@@ -95,9 +96,9 @@ const build = async () => {
     );
   } catch (err) {
     logger.error(`Failed to compile package: ${chalk.cyan(packageName)}`);
-    process.stdout.write(`${(err as Error).stack}\n`);
+    process.stdout.write(`${(err as Error).stack ?? ''}\n`);
     process.exit(1);
   }
 };
 
-build();
+void build();
