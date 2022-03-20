@@ -1,0 +1,14 @@
+checkbox:
+  - packages/checkbox/**/*
+core:
+  - packages/core/**/*
+hooks:
+  - packages/hooks/**/*
+react:
+  - packages/react/**/*
+docs:
+  - docs/**/*
+templates:
+  - templates/**/*
+scripts:
+  - scripts/**/*
