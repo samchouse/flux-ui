@@ -60,6 +60,9 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: yarn
 
+      - name: Install Dependencies
+        run: yarn --immutable
+
       - name: Publish to Chromatic
         uses: chromaui/action@v1
         with:
