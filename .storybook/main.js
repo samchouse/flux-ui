@@ -1,3 +1,5 @@
+const tsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+
 module.exports = {
   stories: ['../packages/**/*.stories.tsx'],
   addons: [
@@ -12,5 +14,14 @@ module.exports = {
   },
   core: {
     builder: 'webpack5'
+  },
+  webpackFinal: async (config) => {
+    config.resolve.plugins = [
+      ...(config.resolve.plugins || []),
+      new tsconfigPathsPlugin({
+        extensions: config.resolve.extensions
+      })
+    ];
+    return config;
   }
 };
