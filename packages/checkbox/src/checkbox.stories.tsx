@@ -15,6 +15,7 @@ Default.args = {
   label: 'Option',
   size: 'md',
   color: 'blue',
+  radius: 'md',
   checked: true,
   indeterminate: false,
   defaultChecked: true,

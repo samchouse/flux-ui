@@ -115,7 +115,7 @@ export const StyledCheckbox = styled(CheckboxPrimitive.Root, {
   variants: {
     disabled: {
       true: {
-        opacity: 0.5,
+        opacity: 0.8,
         color: '$gray500',
         cursor: 'not-allowed',
         background: '$gray300',
