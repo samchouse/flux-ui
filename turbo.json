@@ -6,8 +6,12 @@
       "dependsOn": [],
       "outputs": []
     },
+    "test": {
+      "dependsOn": [],
+      "outputs": []
+    },
     "build": {
-      "dependsOn": ["lint", "^build"],
+      "dependsOn": ["lint", "test", "^build"],
       "outputs": ["lib/**", ".next/**"]
     },
     "publish": {

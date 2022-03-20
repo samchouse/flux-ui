@@ -1,3 +1,4 @@
+import { DefaultColors, DefaultRadii, DefaultSizes } from '@flux-ui/core';
 import { useUuid } from '@flux-ui/hooks';
 import { forwardRef, useCallback, useEffect, useState } from 'react';
 
@@ -11,30 +12,25 @@ import {
 
 export type CheckedState = boolean | 'indeterminate';
 
-export interface CheckboxProps {
-  id?: string;
-  label?: string;
+interface CheckboxWrapperProps
+  extends Omit<React.ComponentPropsWithoutRef<'div'>, 'css'> {
+  color: DefaultColors;
+}
+
+export interface CheckboxProps
+  extends Omit<
+    React.ComponentPropsWithoutRef<'button'>,
+    'type' | 'size' | 'css' | 'onChange'
+  > {
   checked?: boolean;
-  disabled?: boolean;
+  size?: DefaultSizes;
+  color?: DefaultColors;
+  radius?: DefaultRadii;
+  label?: React.ReactNode;
   indeterminate?: boolean;
   defaultChecked?: boolean;
-  size?: 'sm' | 'md' | 'lg';
-  radius?: 'sm' | 'md' | 'lg';
-  color?:
-    | 'blue'
-    | 'cyan'
-    | 'teal'
-    | 'indigo'
-    | 'violet'
-    | 'purple'
-    | 'pink'
-    | 'red'
-    | 'green'
-    | 'lime'
-    | 'yellow'
-    | 'orange'
-    | 'black';
   icon?: React.FC<CheckboxIconProps>;
+  wrapperProps?: CheckboxWrapperProps;
 }
 
 export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
@@ -47,6 +43,7 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
       radius,
       checked,
       disabled,
+      wrapperProps,
       indeterminate,
       defaultChecked,
       icon: Icon = CheckboxIcon,
@@ -56,37 +53,47 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
   ) => {
     const uuid = useUuid(id);
     const [selfChecked, setSelfChecked] = useState<CheckedState>(
-      defaultChecked ?? false
+      indeterminate
+        ? defaultChecked
+          ? 'indeterminate'
+          : false
+        : defaultChecked ?? false
     );
 
     useEffect(() => {
+      if (defaultChecked)
+        return setSelfChecked(indeterminate ? 'indeterminate' : defaultChecked);
+
       setSelfChecked(
-        indeterminate
-          ? checked === true
-            ? 'indeterminate'
-            : false
-          : checked ?? defaultChecked ?? false
+        indeterminate ? (checked ? 'indeterminate' : false) : checked ?? false
       );
     }, [checked, defaultChecked, indeterminate]);
 
     const handleChange = useCallback(() => {
-      if (disabled) return;
       if (indeterminate)
         return setSelfChecked(
           selfChecked === 'indeterminate' ? false : 'indeterminate'
         );
-      setSelfChecked(typeof selfChecked === 'boolean' ? !selfChecked : false);
-    }, [disabled, selfChecked, indeterminate]);
+      setSelfChecked(!selfChecked);
+    }, [selfChecked, indeterminate]);
 
     return (
-      <StyledWrapper size={size} color={color} radius={radius}>
+      <StyledWrapper
+        size={size}
+        color={color}
+        radius={radius}
+        {...wrapperProps}
+      >
         <StyledCheckbox
           id={uuid}
           ref={ref}
           disabled={disabled}
           checked={selfChecked}
+          variantDisabled={disabled}
+          variantChecked={selfChecked}
           onCheckedChange={handleChange}
           defaultChecked={defaultChecked}
+          aria-labelledby={`${uuid}-label`}
           {...props}
         >
           <StyledIndicator forceMount>
@@ -96,7 +103,7 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
           </StyledIndicator>
         </StyledCheckbox>
         {label && (
-          <StyledLabel role="checkbox" htmlFor={uuid}>
+          <StyledLabel as="label" htmlFor={uuid} id={`${uuid}-label`}>
             {label}
           </StyledLabel>
         )}

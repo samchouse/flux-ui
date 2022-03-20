@@ -113,7 +113,7 @@ export const StyledCheckbox = styled(CheckboxPrimitive.Root, {
     background: '$$darkColor'
   },
   variants: {
-    disabled: {
+    variantDisabled: {
       true: {
         opacity: 0.8,
         color: '$gray500',
@@ -124,7 +124,7 @@ export const StyledCheckbox = styled(CheckboxPrimitive.Root, {
         }
       }
     },
-    checked: {
+    variantChecked: {
       indeterminate: {},
       false: {
         boxSizing: 'border-box',
@@ -156,5 +156,5 @@ export const StyledLabel = styled(LabelPrimitive.Root, {
   cursor: 'pointer',
   userSelect: 'none',
   fontSize: '$$checkboxSize',
-  paddingLeft: 'calc($$checkboxSize * 0.57)'
+  pl: 'calc($$checkboxSize * 0.57)'
 });

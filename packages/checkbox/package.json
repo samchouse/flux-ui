@@ -22,6 +22,7 @@
   "scripts": {
     "build": "run -T swc-node scripts/build.ts",
     "lint": "run -T swc-node scripts/eslint.ts",
+    "test": "run -T jest -c ../../jest.config.ts",
     "publish": "yarn npm publish"
   },
   "peerDependencies": {

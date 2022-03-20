@@ -1,4 +1,7 @@
-export const borderWeights = {
+import type * as Stitches from '@stitches/react';
+import { ConfigType } from '@stitches/react/types/config';
+
+export const borderWeights: ConfigType.Theme['borderWidths'] = {
   light: '1px',
   normal: '2px',
   bold: '3px',
@@ -6,7 +9,7 @@ export const borderWeights = {
   black: '5px'
 };
 
-export const borderWidths = {
+export const borderWidths: ConfigType.Theme['borderWidths'] = {
   default: '1px',
   0: '0px',
   2: '2px',
@@ -14,15 +17,15 @@ export const borderWidths = {
   8: '8px'
 };
 
-export const breakpoints = {
-  sm: '640px',
-  md: '768px',
-  lg: '1024px',
-  xl: '1280px',
-  '2xl': '1536px'
+export const media: ConfigType.Media = {
+  sm: '(min-width: 640px)',
+  md: '(min-width: 768px)',
+  lg: '(min-width: 1024px)',
+  xl: '(min-width: 1280px)',
+  '2xl': '(min-width: 1536px)'
 };
 
-export const colors = {
+export const colors: ConfigType.Theme['colors'] = {
   // Common
   black: '#000',
   white: '#fff',
@@ -315,12 +318,12 @@ export const colors = {
   redDark: '$red600'
 };
 
-export const fonts = {
+export const fonts: ConfigType.Theme['fonts'] = {
   sans: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;",
   mono: "Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace;"
 };
 
-export const fontSizes = {
+export const fontSizes: ConfigType.Theme['fontSizes'] = {
   xs: '0.75rem',
   sm: '0.875rem',
   base: '1rem',
@@ -336,7 +339,7 @@ export const fontSizes = {
   '9xl': '8rem'
 };
 
-export const fontWeights = {
+export const fontWeights: ConfigType.Theme['fontWeights'] = {
   hairline: 100,
   thin: 200,
   light: 300,
@@ -348,7 +351,7 @@ export const fontWeights = {
   black: 900
 };
 
-export const lineHeights = {
+export const lineHeights: ConfigType.Theme['lineHeights'] = {
   none: '1',
   tight: '1.25',
   snug: '1.375',
@@ -365,7 +368,7 @@ export const lineHeights = {
   10: '2.5rem'
 };
 
-export const letterSpacings = {
+export const letterSpacings: ConfigType.Theme['letterSpacings'] = {
   tighter: '-0.05em',
   tight: '-0.025em',
   normal: '0em',
@@ -374,7 +377,7 @@ export const letterSpacings = {
   widest: '0.1em'
 };
 
-export const radii = {
+export const radii: ConfigType.Theme['radii'] = {
   none: '0px',
   sm: '0.125rem',
   default: '0.25rem',
@@ -386,7 +389,7 @@ export const radii = {
   full: '9999px'
 };
 
-export const space = {
+export const space: ConfigType.Theme['space'] = {
   0: '0rem',
   xs: '0.5rem',
   sm: '0.75rem',
@@ -429,7 +432,7 @@ export const space = {
   96: '24rem'
 };
 
-export const sizes = {
+export const sizes: ConfigType.Theme['sizes'] = {
   ...space,
   auto: 'auto',
   '1/2': '50%',
@@ -454,7 +457,7 @@ export const sizes = {
   fit: 'fit-content'
 };
 
-export const zIndices = {
+export const zIndices: ConfigType.Theme['zIndices'] = {
   auto: 'auto',
   0: '0',
   10: '10',
@@ -464,21 +467,74 @@ export const zIndices = {
   50: '50'
 };
 
+export const utils: ConfigType.Utils = {
+  // Margin
+  m: (value: Stitches.PropertyValue<'margin'>) => ({
+    margin: value
+  }),
+  ml: (value: Stitches.PropertyValue<'marginLeft'>) => ({
+    marginLeft: value
+  }),
+  mr: (value: Stitches.PropertyValue<'marginRight'>) => ({
+    marginRight: value
+  }),
+  mx: (value: Stitches.PropertyValue<'margin'>) => ({
+    marginLeft: value,
+    marginRight: value
+  }),
+  mt: (value: Stitches.PropertyValue<'marginTop'>) => ({
+    marginTop: value
+  }),
+  mb: (value: Stitches.PropertyValue<'marginBottom'>) => ({
+    marginBottom: value
+  }),
+  my: (value: Stitches.PropertyValue<'margin'>) => ({
+    marginTop: value,
+    marginBottom: value
+  }),
+
+  // Padding
+  p: (value: Stitches.PropertyValue<'padding'>) => ({
+    padding: value
+  }),
+  pl: (value: Stitches.PropertyValue<'paddingLeft'>) => ({
+    paddingLeft: value
+  }),
+  pr: (value: Stitches.PropertyValue<'paddingRight'>) => ({
+    paddingRight: value
+  }),
+  px: (value: Stitches.PropertyValue<'padding'>) => ({
+    paddingLeft: value,
+    paddingRight: value
+  }),
+  pt: (value: Stitches.PropertyValue<'paddingTop'>) => ({
+    paddingTop: value
+  }),
+  pb: (value: Stitches.PropertyValue<'paddingBottom'>) => ({
+    paddingBottom: value
+  }),
+  py: (value: Stitches.PropertyValue<'padding'>) => ({
+    paddingTop: value,
+    paddingBottom: value
+  })
+};
+
 export default {
   prefix: 'fluxui',
+  media,
+  utils,
   theme: {
     borderWeights,
     borderWidths,
-    breakpoints,
     colors,
     fonts,
     fontSizes,
     fontWeights,
-    lineHeights,
     letterSpacings,
+    lineHeights,
     radii,
-    space,
     sizes,
+    space,
     zIndices
   }
 };
