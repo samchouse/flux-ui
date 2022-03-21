@@ -4,8 +4,6 @@
  */
 import path from 'path';
 
-console.log(path.relative(__dirname, process.cwd()));
-
 export default {
   // All imported modules in your tests should be mocked automatically
   // automock: false,
@@ -26,7 +24,7 @@ export default {
   collectCoverageFrom: [
     `${path.relative(__dirname, process.cwd())}/**/*.{ts,tsx}`,
     `!**/index.ts`,
-    `!**/*.stories.tsx`,
+    `!**/*.{test,stories}.tsx`,
     '!**/node_modules/**',
     '!**/lib/**'
   ],
