@@ -2,6 +2,9 @@
  * For a detailed explanation regarding each configuration property and type check, visit:
  * https://jestjs.io/docs/configuration
  */
+import path from 'path';
+
+console.log(path.relative(__dirname, process.cwd()));
 
 export default {
   // All imported modules in your tests should be mocked automatically
@@ -20,13 +23,19 @@ export default {
   collectCoverage: true,
 
   // An array of glob patterns indicating a set of files for which coverage information should be collected
-  // collectCoverageFrom: undefined,
+  collectCoverageFrom: [
+    `${path.relative(__dirname, process.cwd())}/**/*.{ts,tsx}`,
+    `!**/index.ts`,
+    `!**/*.stories.tsx`,
+    '!**/node_modules/**',
+    '!**/lib/**'
+  ],
 
   // The directory where Jest should output its coverage files
   coverageDirectory: 'coverage',
 
   // An array of regexp pattern strings used to skip coverage collection
-  coveragePathIgnorePatterns: ['/node_modules/', '/lib/'],
+  // coveragePathIgnorePatterns: ['/node_modules/'],
 
   // Indicates which provider should be used to instrument code for coverage
   coverageProvider: 'v8',
@@ -79,7 +88,9 @@ export default {
   // ],
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
-  // moduleNameMapper: {},
+  moduleNameMapper: {
+    '^@flux-ui/(.*)$': '<rootDir>/packages/$1/src'
+  },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
   // modulePathIgnorePatterns: [],
