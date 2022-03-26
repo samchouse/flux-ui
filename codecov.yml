@@ -46,3 +46,19 @@ flags:
     paths:
       - packages/checkbox/
     carryforward: true
+  core:
+    paths:
+      - packages/core/
+    carryforward: true
+  hooks:
+    paths:
+      - packages/hooks/
+    carryforward: true
+  react:
+    paths:
+      - packages/react/
+    carryforward: true
+  switch:
+    paths:
+      - packages/switch/
+    carryforward: true

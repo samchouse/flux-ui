@@ -6,6 +6,8 @@ hooks:
   - packages/hooks/**/*
 react:
   - packages/react/**/*
+switch:
+  - packages/switch/**/*
 docs:
   - docs/**/*
 templates:
