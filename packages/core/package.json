@@ -1,6 +1,6 @@
 {
   "name": "@flux-ui/core",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "An awesome React component library built with Radix UI Primitives & Stiches",
   "author": "Samuel Corsi-House <chouse.samuel@gmail.com>",
   "license": "MIT",
