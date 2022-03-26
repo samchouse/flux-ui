@@ -1,5 +1,24 @@
 # Changelog
 
+## [0.0.4](https://github.com/Xenfo/flux-ui/compare/v0.0.3...v0.0.4) - (2022-03-26)
+
+### Bug Fixes
+
+- **Checkbox:** Disabled variant (#43) ([ec9eadf](https://github.com/Xenfo/flux-ui/commit/ec9eadf8f016d3ee82625c6d1363a131cdfffa7f))
+- **Misc:** Jest (#51) ([d7b6edb](https://github.com/Xenfo/flux-ui/commit/d7b6edb3bf6a99d8505eefa51ac772cca95a0026))
+
+### Features
+
+- **Checkbox:** Finish component (#44) ([4bbcbdf](https://github.com/Xenfo/flux-ui/commit/4bbcbdf75591c2580de55ce0cb3782ec17d5e955))
+- **Switch:** Add component (#52) ([60a0efa](https://github.com/Xenfo/flux-ui/commit/60a0efafbbbe197b9a8b8d4372e384865517ee09))
+
+### Miscellaneous Tasks
+
+- **Misc:** Fix tooling (#42) ([b3fdcd5](https://github.com/Xenfo/flux-ui/commit/b3fdcd52e603b3e77ad7497123cdfe5575a8891c))
+- **Misc:** Fix jest ([9c23206](https://github.com/Xenfo/flux-ui/commit/9c23206166962db9578b19881ecb05e6e501cf71))
+- **Deps:** Update actions/cache action to v3 (#45) ([ac2502d](https://github.com/Xenfo/flux-ui/commit/ac2502d950a1202a35461d382ac7640b34a6b1fc))
+- **Deps:** Update dependency @types/react to v17.0.42 (#46) ([2b9a306](https://github.com/Xenfo/flux-ui/commit/2b9a3060816b5b706d0f41cfa435794d05f36a56))
+
 ## [0.0.3](https://github.com/Xenfo/flux-ui/compare/v0.0.2...v0.0.3) - (2022-03-19)
 
 ### Bug Fixes
