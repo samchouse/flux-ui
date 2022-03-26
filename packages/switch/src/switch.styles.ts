@@ -11,22 +11,25 @@ export const StyledWrapper = styled('div', {
         $$height: '16px',
         $$width: '28px',
         $$thumbSize: '10px',
-        $$translateX: 'translateX(3px)',
-        $$translateXChecked: 'translateX(15px)'
+        $$translateX: '3px',
+        $$translateXChecked: '15px',
+        $$translateXBordered: '1px'
       },
       md: {
         $$height: '20px',
         $$width: '36px',
         $$thumbSize: '14px',
-        $$translateX: 'translateX(3px)',
-        $$translateXChecked: 'translateX(19px)'
+        $$translateX: '3px',
+        $$translateXChecked: '19px',
+        $$translateXBordered: '1.5px'
       },
       lg: {
         $$height: '24px',
         $$width: '44px',
         $$thumbSize: '16px',
-        $$translateX: 'translateX(4px)',
-        $$translateXChecked: 'translateX(24px)'
+        $$translateX: '4px',
+        $$translateXChecked: '24px',
+        $$translateXBordered: '2px'
       }
     },
     radius: {
@@ -114,13 +117,33 @@ export const StyledSwitch = styled(SwitchPrimitive.Root, {
   '&:hover': {
     background: '$$darkColor'
   },
-  '&[data-disabled=""]': {
-    opacity: 0.8,
-    cursor: 'not-allowed',
-    background: '$gray300'
-  },
-  '&[data-state="unchecked"]': {
-    background: '$gray300'
+  variants: {
+    bordered: {
+      true: {
+        '&[data-disabled=""]': {
+          opacity: 0.8,
+          cursor: 'not-allowed'
+        },
+        '&[data-state="unchecked"]': {
+          boxSizing: 'border-box',
+          background: 'transparent',
+          border: '2px solid $gray300',
+          '&:hover': {
+            border: '2px solid $$normalColor'
+          }
+        }
+      },
+      false: {
+        '&[data-disabled=""]': {
+          opacity: 0.8,
+          cursor: 'not-allowed',
+          background: '$gray300'
+        },
+        '&[data-state="unchecked"]': {
+          background: '$gray300'
+        }
+      }
+    }
   }
 });
 
@@ -132,10 +155,22 @@ export const StyledThumb = styled(SwitchPrimitive.Thumb, {
   background: '$gray50',
   borderRadius: '$$radius',
   transition: 'all 250ms ease',
-  transform: '$$translateX',
+  transform: 'translateX($$translateXBordered)',
   willChange: 'transform',
   '&[data-state="checked"]': {
-    transform: '$$translateXChecked'
+    transform: 'translateX($$translateXChecked)'
+  },
+  variants: {
+    bordered: {
+      true: {
+        '&[data-state="unchecked"]': {
+          background: '$gray900'
+        }
+      },
+      false: {
+        transform: 'translateX($$translateX)'
+      }
+    }
   }
 });
 

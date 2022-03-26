@@ -20,6 +20,7 @@ export interface SwitchProps
     'type' | 'size' | 'css' | 'onChange'
   > {
   checked?: boolean;
+  bordered?: boolean;
   size?: DefaultSizes;
   radius?: DefaultRadii;
   color?: DefaultColors;
@@ -38,6 +39,7 @@ export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(
       radius,
       checked,
       disabled,
+      bordered,
       wrapperProps,
       defaultChecked,
       ...props
@@ -67,6 +69,7 @@ export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(
         <StyledSwitch
           id={uuid}
           ref={ref}
+          bordered={bordered}
           disabled={disabled}
           checked={selfChecked}
           onCheckedChange={handleChange}
@@ -74,7 +77,7 @@ export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(
           aria-labelledby={`${uuid}-label`}
           {...props}
         >
-          <StyledThumb />
+          <StyledThumb bordered={bordered} />
         </StyledSwitch>
         {label && (
           <StyledLabel as="label" htmlFor={uuid} id={`${uuid}-label`}>
