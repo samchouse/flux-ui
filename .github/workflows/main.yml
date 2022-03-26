@@ -13,19 +13,15 @@ jobs:
     name: Lint
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [17.7.2]
-
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Set up Node.js ${{ matrix.node-version }}
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
           cache: yarn
+          node-version: 17.8.0
 
       - name: Restore Turbo Cache
         uses: actions/cache@v3
@@ -48,19 +44,15 @@ jobs:
     name: Test
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [17.7.2]
-
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Set up Node.js ${{ matrix.node-version }}
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
           cache: yarn
+          node-version: 17.8.0
 
       - name: Restore Turbo Cache
         uses: actions/cache@v3
@@ -74,7 +66,7 @@ jobs:
         run: yarn --immutable
 
       - name: Run Tests
-        run: yarn test
+        run: yarn test:ci
         env:
           VERCEL_ARTIFACTS_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           VERCEL_ARTIFACTS_OWNER: ${{ secrets.VERCEL_OWNER }}
@@ -92,11 +84,11 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Set up Node.js ${{ matrix.node-version }}
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
           cache: yarn
+          node-version: 17.8.0
 
       - name: Install Dependencies
         run: yarn --immutable
