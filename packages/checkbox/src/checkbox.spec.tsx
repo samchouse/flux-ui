@@ -37,7 +37,7 @@ describe('@flux-ui/checkbox', () => {
   });
 
   it('sets checked state based on checked prop', () => {
-    render(<Checkbox {...defaultProps()} />);
+    render(<Checkbox {...defaultProps(true)} />);
     expect(screen.getByRole('checkbox')).toBeChecked();
   });
 
@@ -46,7 +46,6 @@ describe('@flux-ui/checkbox', () => {
     const { container: withoutLabel } = render(
       <Checkbox defaultChecked={defaultProps().defaultChecked} />
     );
-
     expect(withLabel.querySelectorAll('label')).toHaveLength(1);
     expect(withoutLabel.querySelectorAll('label')).toHaveLength(0);
     expect(screen.getByText('test-label')).toBeInTheDocument();

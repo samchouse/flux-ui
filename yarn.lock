@@ -2046,6 +2046,7 @@ __metadata:
     "@flux-ui/core": "workspace:*"
     "@flux-ui/hooks": "workspace:*"
     "@heroicons/react": ^1.0.6
+    "@radix-ui/react-accessible-icon": ^0.1.4
     "@radix-ui/react-checkbox": ^0.1.5
     "@radix-ui/react-label": ^0.1.5
   peerDependencies:
@@ -2095,6 +2096,19 @@ __metadata:
     "@flux-ui/checkbox": "workspace:*"
     "@flux-ui/core": "workspace:*"
     "@flux-ui/hooks": "workspace:*"
+    "@flux-ui/switch": "workspace:*"
+  peerDependencies:
+    react: ">=17.0.0"
+    react-dom: ">=17.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@flux-ui/switch@workspace:*, @flux-ui/switch@workspace:packages/switch":
+  version: 0.0.0-use.local
+  resolution: "@flux-ui/switch@workspace:packages/switch"
+  dependencies:
+    "@flux-ui/core": "workspace:*"
+    "@radix-ui/react-switch": ^0.1.5
   peerDependencies:
     react: ">=17.0.0"
     react-dom: ">=17.0.0"
@@ -2762,6 +2776,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@radix-ui/react-accessible-icon@npm:^0.1.4":
+  version: 0.1.4
+  resolution: "@radix-ui/react-accessible-icon@npm:0.1.4"
+  dependencies:
+    "@babel/runtime": ^7.13.10
+    "@radix-ui/react-visually-hidden": 0.1.4
+  peerDependencies:
+    react: ^16.8 || ^17.0
+  checksum: 5ae8090aff7b526c9dec574a10e50d40474a0d8d08d360508750eda051597e06621acfe06c489e2fc0ead85c27858f4d88c1282254fb3a9eb00976022303dec9
+  languageName: node
+  linkType: hard
+
 "@radix-ui/react-checkbox@npm:^0.1.5":
   version: 0.1.5
   resolution: "@radix-ui/react-checkbox@npm:0.1.5"
@@ -2868,6 +2894,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@radix-ui/react-switch@npm:^0.1.5":
+  version: 0.1.5
+  resolution: "@radix-ui/react-switch@npm:0.1.5"
+  dependencies:
+    "@babel/runtime": ^7.13.10
+    "@radix-ui/primitive": 0.1.0
+    "@radix-ui/react-compose-refs": 0.1.0
+    "@radix-ui/react-context": 0.1.1
+    "@radix-ui/react-label": 0.1.5
+    "@radix-ui/react-primitive": 0.1.4
+    "@radix-ui/react-use-controllable-state": 0.1.0
+    "@radix-ui/react-use-previous": 0.1.1
+    "@radix-ui/react-use-size": 0.1.1
+  peerDependencies:
+    react: ^16.8 || ^17.0
+  checksum: e000cfeff7438a9ae3ff6877d1e86c0e8f1902b4358ff5ed29343ab685c848d03560e6ac379908a40006b7e28c1c17fe03952b70f13d6a444d3a142537d3de80
+  languageName: node
+  linkType: hard
+
 "@radix-ui/react-use-callback-ref@npm:0.1.0":
   version: 0.1.0
   resolution: "@radix-ui/react-use-callback-ref@npm:0.1.0"
@@ -2921,6 +2966,18 @@ __metadata:
   peerDependencies:
     react: ^16.8 || ^17.0
   checksum: 205788806f108af75e1aba472e0801f3f735aec03e3fc1dbba5339a9f952a624df3ef82ffd833c71a89720ef5cc2bdc729bb234dd1b995f560206cb070863263
+  languageName: node
+  linkType: hard
+
+"@radix-ui/react-visually-hidden@npm:0.1.4":
+  version: 0.1.4
+  resolution: "@radix-ui/react-visually-hidden@npm:0.1.4"
+  dependencies:
+    "@babel/runtime": ^7.13.10
+    "@radix-ui/react-primitive": 0.1.4
+  peerDependencies:
+    react: ^16.8 || ^17.0
+  checksum: f551d27534c3c214fc2c085da6dabd8301c0e0d44268c0d6388ddcb194adfd3ef937366e390e931a03df3742eca83230f4718b807ad5565bbb75c03603e69c2c
   languageName: node
   linkType: hard
 

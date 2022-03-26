@@ -5,10 +5,6 @@
     "ecmaVersion": 2022,
     "sourceType": "module"
   },
-  "rules": {
-    "arrow-body-style": "error",
-    "prefer-arrow-callback": "error"
-  },
   "env": {
     "es6": true,
     "node": true,
@@ -27,6 +23,8 @@
       "files": ["*.js", "*.mjs"],
       "extends": ["eslint:recommended"],
       "rules": {
+        "arrow-body-style": ["error"],
+        "prefer-arrow-callback": ["error"],
         "no-unused-vars": [
           "error",
           { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" }
@@ -53,6 +51,8 @@
       },
       "rules": {
         "react/prop-types": ["off"],
+        "arrow-body-style": ["error"],
+        "prefer-arrow-callback": ["error"],
         "react/react-in-jsx-scope": ["off"],
         "react/jsx-filename-extension": ["error", { "extensions": [".tsx"] }],
         "@typescript-eslint/no-unused-vars": [
