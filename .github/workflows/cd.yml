@@ -1,4 +1,4 @@
-name: Release
+name: CD
 
 on:
   push:
@@ -36,11 +36,10 @@ jobs:
       - name: Import GPG Key
         uses: crazy-max/ghaction-import-gpg@v4
         with:
-          gpg_private_key: ${{ secrets.FLUX_GPG_PRIVATE_KEY }}
-          passphrase: ${{ secrets.FLUX_GPG_PASSPHRASE }}
-          git_push_gpgsign: 'true'
           git_commit_gpgsign: true
           git_user_signingkey: true
+          passphrase: ${{ secrets.FLUX_GPG_PASSPHRASE }}
+          gpg_private_key: ${{ secrets.FLUX_GPG_PRIVATE_KEY }}
 
       - name: Set Canary Meta
         uses: actions/github-script@v6
