@@ -1,6 +1,6 @@
 {
-  "name": "@flux-ui/react",
-  "version": "0.0.3",
+  "name": "@flux-ui/switch",
+  "version": "0.0.0",
   "description": "An awesome React component library built with Radix UI Primitives & Stiches",
   "author": "Samuel Corsi-House <chouse.samuel@gmail.com>",
   "license": "MIT",
@@ -16,8 +16,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/flux-ui/flux-ui.git",
-    "directory": "packages/react"
+    "url": "git+https://github.com/Xenfo/flux-ui.git",
+    "directory": "packages/switch"
   },
   "scripts": {
     "build": "run -T swc-node scripts/build.ts",
@@ -29,9 +29,7 @@
     "react-dom": ">=17.0.0"
   },
   "dependencies": {
-    "@flux-ui/checkbox": "workspace:*",
     "@flux-ui/core": "workspace:*",
-    "@flux-ui/hooks": "workspace:*",
-    "@flux-ui/switch": "workspace:*"
+    "@radix-ui/react-switch": "^0.1.5"
   }
 }

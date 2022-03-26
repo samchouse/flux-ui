@@ -1,5 +1,5 @@
 {
-  "display": "React",
+  "display": "Switch",
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "target": "ESNext",
@@ -16,9 +16,6 @@
   },
   "exclude": ["node_modules", "lib"],
   "references": [
-    {
-      "path": "../checkbox"
-    },
     {
       "path": "../core"
     },

@@ -1,6 +1,6 @@
 import { styled } from '@flux-ui/core';
-import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
 import * as LabelPrimitive from '@radix-ui/react-label';
+import * as SwitchPrimitive from '@radix-ui/react-switch';
 
 export const StyledWrapper = styled('div', {
   display: 'flex',
@@ -8,19 +8,28 @@ export const StyledWrapper = styled('div', {
   variants: {
     size: {
       sm: {
-        $$iconSize: '12px',
-        $$fontSize: '15px',
-        $$checkboxSize: '16px'
+        $$height: '16px',
+        $$width: '28px',
+        $$thumbSize: '10px',
+        $$translateX: '3px',
+        $$translateXChecked: '15px',
+        $$translateXBordered: '1px'
       },
       md: {
-        $$iconSize: '14px',
-        $$fontSize: '17px',
-        $$checkboxSize: '18px'
+        $$height: '20px',
+        $$width: '36px',
+        $$thumbSize: '14px',
+        $$translateX: '3px',
+        $$translateXChecked: '19px',
+        $$translateXBordered: '1.5px'
       },
       lg: {
-        $$iconSize: '16px',
-        $$fontSize: '19px',
-        $$checkboxSize: '20px'
+        $$height: '24px',
+        $$width: '44px',
+        $$thumbSize: '16px',
+        $$translateX: '4px',
+        $$translateXChecked: '24px',
+        $$translateXBordered: '2px'
       }
     },
     radius: {
@@ -28,10 +37,10 @@ export const StyledWrapper = styled('div', {
         $$radius: '$radii$sm'
       },
       md: {
-        $$radius: '$radii$md'
+        $$radius: '$radii$default'
       },
       lg: {
-        $$radius: '$radii$lg'
+        $$radius: '$radii$full'
       }
     },
     color: {
@@ -91,55 +100,77 @@ export const StyledWrapper = styled('div', {
   },
   defaultVariants: {
     size: 'md',
-    radius: 'md',
+    radius: 'lg',
     color: 'blue'
   }
 });
 
-export const StyledCheckbox = styled(CheckboxPrimitive.Root, {
+export const StyledSwitch = styled(SwitchPrimitive.Root, {
   all: 'unset',
-  border: 'none',
-  display: 'flex',
-  color: '$gray50',
   cursor: 'pointer',
-  alignItems: 'center',
-  width: '$$checkboxSize',
-  height: '$$checkboxSize',
-  borderRadius: '$$radius',
-  justifyContent: 'center',
+  height: '$$height',
+  width: '$$width',
   background: '$$normalColor',
+  borderRadius: '$$radius',
+  position: 'relative',
   transition: 'all 250ms ease',
   '&:hover': {
     background: '$$darkColor'
   },
-  '&[data-disabled=""]': {
-    opacity: 0.8,
-    color: '$gray500',
-    cursor: 'not-allowed',
-    background: '$gray300',
-    '&:hover': {
-      background: '$gray300'
-    }
-  },
-  '&[data-state="unchecked"]': {
-    boxSizing: 'border-box',
-    background: 'transparent',
-    border: '1px solid $gray300',
-    '&:hover': {
-      background: '$gray300'
+  variants: {
+    bordered: {
+      true: {
+        '&[data-disabled=""]': {
+          opacity: 0.8,
+          cursor: 'not-allowed'
+        },
+        '&[data-state="unchecked"]': {
+          boxSizing: 'border-box',
+          background: 'transparent',
+          border: '2px solid $gray300',
+          '&:hover': {
+            border: '2px solid $$normalColor'
+          }
+        }
+      },
+      false: {
+        '&[data-disabled=""]': {
+          opacity: 0.8,
+          cursor: 'not-allowed',
+          background: '$gray300'
+        },
+        '&[data-state="unchecked"]': {
+          background: '$gray300'
+        }
+      }
     }
   }
 });
 
-export const StyledIndicator = styled(CheckboxPrimitive.Indicator, {
+export const StyledThumb = styled(SwitchPrimitive.Thumb, {
   all: 'unset',
-  display: 'flex',
-  color: 'inherit',
-  width: '$$iconSize',
-  height: '$$iconSize',
-  '& svg': {
-    width: '$full',
-    height: '$full'
+  display: 'block',
+  width: '$$thumbSize',
+  height: '$$thumbSize',
+  background: '$gray50',
+  borderRadius: '$$radius',
+  transition: 'all 250ms ease',
+  transform: 'translateX($$translateXBordered)',
+  willChange: 'transform',
+  '&[data-state="checked"]': {
+    transform: 'translateX($$translateXChecked)'
+  },
+  variants: {
+    bordered: {
+      true: {
+        '&[data-state="unchecked"]': {
+          background: '$gray900'
+        }
+      },
+      false: {
+        transform: 'translateX($$translateX)'
+      }
+    }
   }
 });
 
@@ -148,6 +179,6 @@ export const StyledLabel = styled(LabelPrimitive.Root, {
   lineHeight: 1,
   cursor: 'pointer',
   userSelect: 'none',
-  fontSize: '$$checkboxSize',
-  pl: 'calc($$checkboxSize * 0.57)'
+  fontSize: '$$height',
+  pl: 'calc($$height * 0.57)'
 });

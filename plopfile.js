@@ -8,7 +8,7 @@ const moveESLintRc = async (answers) => {
     `packages/${answers.name}/.eslintrc`
   );
 
-  return 'Updated ESLint config';
+  return 'Moved ESLint config';
 };
 
 /** @type {import('plop').CustomActionFunction} */
