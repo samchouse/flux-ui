@@ -1,6 +1,7 @@
-import { DefaultColors, DefaultRadii, DefaultSizes } from '@flux-ui/core';
-import { useUuid } from '@flux-ui/hooks';
 import { forwardRef, useCallback, useEffect, useState } from 'react';
+
+import { DefaultColors, DefaultRadii, DefaultSizes } from '@flux-ui/core';
+import { useId } from '@flux-ui/hooks';
 
 import { CheckboxIcon, CheckboxIconProps } from './checkbox-icon';
 import {
@@ -51,7 +52,7 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
     }: CheckboxProps,
     ref
   ) => {
-    const uuid = useUuid(id);
+    const componentId = useId(id);
     const [selfChecked, setSelfChecked] = useState<CheckedState>(
       indeterminate
         ? defaultChecked
@@ -85,13 +86,13 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
         {...wrapperProps}
       >
         <StyledCheckbox
-          id={uuid}
           ref={ref}
+          id={componentId}
           disabled={disabled}
           checked={selfChecked}
           onCheckedChange={handleChange}
           defaultChecked={defaultChecked}
-          aria-labelledby={`${uuid}-label`}
+          aria-labelledby={`${componentId}-label`}
           {...props}
         >
           <StyledIndicator forceMount>
@@ -101,7 +102,11 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
           </StyledIndicator>
         </StyledCheckbox>
         {label && (
-          <StyledLabel as="label" htmlFor={uuid} id={`${uuid}-label`}>
+          <StyledLabel
+            as="label"
+            htmlFor={componentId}
+            id={`${componentId}-label`}
+          >
             {label}
           </StyledLabel>
         )}

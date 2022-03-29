@@ -1,6 +1,7 @@
-import { DefaultColors, DefaultRadii, DefaultSizes } from '@flux-ui/core';
-import { useUuid } from '@flux-ui/hooks';
 import { forwardRef, useCallback, useEffect, useState } from 'react';
+
+import { DefaultColors, DefaultRadii, DefaultSizes } from '@flux-ui/core';
+import { useId } from '@flux-ui/hooks';
 
 import {
   StyledLabel,
@@ -46,7 +47,7 @@ export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(
     }: SwitchProps,
     ref
   ) => {
-    const uuid = useUuid(id);
+    const componentId = useId(id);
     const [selfChecked, setSelfChecked] = useState(defaultChecked ?? false);
 
     useEffect(
@@ -67,20 +68,24 @@ export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(
         {...wrapperProps}
       >
         <StyledSwitch
-          id={uuid}
           ref={ref}
+          id={componentId}
           bordered={bordered}
           disabled={disabled}
           checked={selfChecked}
           onCheckedChange={handleChange}
           defaultChecked={defaultChecked}
-          aria-labelledby={`${uuid}-label`}
+          aria-labelledby={`${componentId}-label`}
           {...props}
         >
           <StyledThumb bordered={bordered} />
         </StyledSwitch>
         {label && (
-          <StyledLabel as="label" htmlFor={uuid} id={`${uuid}-label`}>
+          <StyledLabel
+            as="label"
+            htmlFor={componentId}
+            id={`${componentId}-label`}
+          >
             {label}
           </StyledLabel>
         )}

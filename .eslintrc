@@ -16,6 +16,14 @@
     },
     "next": {
       "rootDir": "docs/"
+    },
+    "import/extensions": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "typescript": {
+        "project": ["tsconfig.json", "packages/*/tsconfig.json"]
+      }
     }
   },
   "overrides": [
@@ -50,6 +58,7 @@
         "EXPERIMENTAL_useSourceOfProjectReferenceRedirect": true
       },
       "rules": {
+        "import/order": ["off"],
         "react/prop-types": ["off"],
         "arrow-body-style": ["error"],
         "prefer-arrow-callback": ["error"],
