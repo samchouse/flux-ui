@@ -1,5 +1,5 @@
 // Hooks
-export * from './use-uuid/use-uuid';
+export * from './use-id/use-id';
 export * from './use-isomorphic-effect/use-isomorphic-effect';
 
 // Utils

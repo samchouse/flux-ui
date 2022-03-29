@@ -1,6 +1,7 @@
-import { styled } from '@flux-ui/core';
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
 import * as LabelPrimitive from '@radix-ui/react-label';
+
+import { styled } from '@flux-ui/core';
 
 export const StyledWrapper = styled('div', {
   display: 'flex',

@@ -1,6 +1,7 @@
-import { styled } from '@flux-ui/core';
 import * as LabelPrimitive from '@radix-ui/react-label';
 import * as SwitchPrimitive from '@radix-ui/react-switch';
+
+import { styled } from '@flux-ui/core';
 
 export const StyledWrapper = styled('div', {
   display: 'flex',

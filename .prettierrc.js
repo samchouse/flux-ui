@@ -3,7 +3,7 @@ module.exports = {
   singleQuote: true,
   bracketSpacing: true,
   trailingComma: 'none',
-  importOrder: ['^[./]'],
+  importOrder: ['^@flux-ui/(.*)$', '^[./]'],
   importOrderSeparation: true,
   importOrderSortSpecifiers: true,
   importOrderParserPlugins: [
