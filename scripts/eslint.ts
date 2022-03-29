@@ -3,12 +3,6 @@ import minimist from 'minimist';
 import path from 'path';
 
 const args = minimist(process.argv.slice(2));
-const runner = new ESLint({
-  fix: args.fix as boolean,
-  useEslintrc: true,
-  cwd: process.cwd(),
-  ignorePath: path.join(__dirname, '../.gitignore')
-});
 
 const getLineColumnSize = (line: number[], column: number[]) =>
   line.reduce(
@@ -32,6 +26,16 @@ const runESLint = async () => {
   const targets = args._.filter(
     (target) => !path.relative(target, process.cwd()).includes('..')
   );
+  if (args._.length > 0 && targets.length === 0)
+    return console.log(chalk.blueBright('✔ Skipping; No target files'));
+
+  const runner = new ESLint({
+    fix: args.fix as boolean,
+    useEslintrc: true,
+    cwd: process.cwd(),
+    ignorePath: path.join(__dirname, '../.gitignore')
+  });
+
   const report = await runner.lintFiles(targets.length > 0 ? targets : '.');
 
   if (
