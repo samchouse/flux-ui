@@ -1,5 +1,25 @@
 # Changelog
 
+## [0.0.5](https://github.com/Xenfo/flux-ui/compare/v0.0.4...v0.0.5) - (2022-03-29)
+
+### Bug Fixes
+
+- **Misc:** Update turbo.json ([beeada3](https://github.com/Xenfo/flux-ui/commit/beeada36262c7caee6c5a20d11d9b91e2aecd564))
+- **Deps:** Update react monorepo to v18 (#55) ([3f0d6ed](https://github.com/Xenfo/flux-ui/commit/3f0d6ed61f86b756acf9a19625b85f829f74386f))
+
+### CI
+
+- **Misc:** Rename CIs ([9f0c546](https://github.com/Xenfo/flux-ui/commit/9f0c54654333cd9298a7c7e37ddf380a97def0c1))
+
+### Features
+
+- **Misc:** React 18 (#56) ([7d478ff](https://github.com/Xenfo/flux-ui/commit/7d478ff8caa5417e13ef058c60a697cf8fcfb33e))
+
+### Miscellaneous Tasks
+
+- **Deps:** Update nextjs monorepo to v12.1.2 (#49) ([7944087](https://github.com/Xenfo/flux-ui/commit/7944087ce51f60ef54f244fa483f489844a62f3b))
+- **Hooks:** Cleanup unused files (#57) ([90af21d](https://github.com/Xenfo/flux-ui/commit/90af21ddd5a316e05229f0f7718cee5011863c21))
+
 ## [0.0.4](https://github.com/Xenfo/flux-ui/compare/v0.0.3...v0.0.4) - (2022-03-26)
 
 ### Bug Fixes
