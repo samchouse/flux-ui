@@ -28,7 +28,7 @@ jobs:
         with:
           path: |
             **/.turbo/turbo-*.log
-            !**/node_modules/**
+            **/node_modules/.cache/**
           key: ${{ runner.os }}-turbo-${{ hashFiles('**/yarn.lock') }}
 
       - name: Install Dependencies
@@ -59,7 +59,7 @@ jobs:
         with:
           path: |
             **/.turbo/turbo-*.log
-            !**/node_modules/**
+            **/node_modules/.cache/**
           key: ${{ runner.os }}-turbo-${{ hashFiles('**/yarn.lock') }}
 
       - name: Install Dependencies
