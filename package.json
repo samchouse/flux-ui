@@ -50,7 +50,7 @@
     "@swc/jest": "^0.2.20",
     "@swc/register": "^0.1.10",
     "@testing-library/jest-dom": "^5.16.3",
-    "@testing-library/react": "^12.1.4",
+    "@testing-library/react": "^13.0.0",
     "@trivago/prettier-plugin-sort-imports": "^3.2.0",
     "@types/eslint": "^8.4.1",
     "@types/fs-extra": "^9.0.13",
