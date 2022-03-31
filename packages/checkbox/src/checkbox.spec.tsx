@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom';
-import { cleanup, render, screen } from '@testing-library/react';
+import { act, cleanup, render, screen } from '@testing-library/react';
 
 import { Checkbox, CheckboxProps } from './checkbox';
 import { CheckboxIcon } from './checkbox-icon';
@@ -65,9 +65,13 @@ describe('@flux-ui/checkbox', () => {
     render(<Checkbox {...defaultProps()} />);
     const el = screen.getByRole('checkbox');
     expect(el).toBeChecked();
-    el.click();
+    act(() => {
+      el.click();
+    });
     expect(el).not.toBeChecked();
-    el.click();
+    act(() => {
+      el.click();
+    });
     expect(el).toBeChecked();
   });
 
@@ -75,9 +79,13 @@ describe('@flux-ui/checkbox', () => {
     render(<Checkbox indeterminate {...defaultProps()} />);
     const el = screen.getByRole('checkbox');
     expect(el).toBePartiallyChecked();
-    el.click();
+    act(() => {
+      el.click();
+    });
     expect(el).not.toBePartiallyChecked();
-    el.click();
+    act(() => {
+      el.click();
+    });
     expect(el).toBePartiallyChecked();
   });
 
@@ -86,7 +94,9 @@ describe('@flux-ui/checkbox', () => {
     const el = screen.getByRole('checkbox');
     expect(el).toBeDisabled();
     expect(el).toBeChecked();
-    el.click();
+    act(() => {
+      el.click();
+    });
     expect(el).toBeChecked();
   });
 });

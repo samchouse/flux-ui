@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom';
-import { cleanup, render, screen } from '@testing-library/react';
+import { act, cleanup, render, screen } from '@testing-library/react';
 
 import { Switch, SwitchProps } from './switch';
 
@@ -47,9 +47,13 @@ describe('@flux-ui/switch', () => {
     render(<Switch {...defaultProps()} />);
     const el = screen.getByRole('switch');
     expect(el).toBeChecked();
-    el.click();
+    act(() => {
+      el.click();
+    });
     expect(el).not.toBeChecked();
-    el.click();
+    act(() => {
+      el.click();
+    });
     expect(el).toBeChecked();
   });
 
@@ -58,7 +62,9 @@ describe('@flux-ui/switch', () => {
     const el = screen.getByRole('switch');
     expect(el).toBeDisabled();
     expect(el).toBeChecked();
-    el.click();
+    act(() => {
+      el.click();
+    });
     expect(el).toBeChecked();
   });
 });
