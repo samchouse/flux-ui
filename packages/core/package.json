@@ -29,6 +29,6 @@
     "react-dom": ">=18.0.0"
   },
   "dependencies": {
-    "@stitches/react": "^1.2.7"
+    "@stitches/react": "^1.2.8"
   }
 }
