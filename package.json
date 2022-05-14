@@ -32,9 +32,9 @@
   "resolutions": {
     "@storybook/react/webpack": "^5.70.0",
     "ansi-regex": "^3.0.1",
-    "glob-parent": "^5.1.2",
+    "glob-parent": "^5.0.1",
     "minimist": "^1.2.6",
-    "trim": "^0.0.3",
+    "trim": "^1.0.1",
     "rollup-plugin-ts@2.0.5": "patch:rollup-plugin-ts@npm:2.0.5#.yarn/patches/rollup-plugin-ts-npm-2.0.5-9d9fec7bf1.patch"
   },
   "devDependencies": {
@@ -49,7 +49,7 @@
     "@storybook/builder-webpack5": "^6.4.22",
     "@storybook/manager-webpack5": "^6.4.22",
     "@storybook/react": "^6.4.22",
-    "@swc/core": "^1.2.181",
+    "@swc/core": "^1.2.183",
     "@swc/helpers": "^0.3.13",
     "@swc/jest": "^0.2.21",
     "@swc/register": "^0.1.10",
@@ -58,8 +58,8 @@
     "@trivago/prettier-plugin-sort-imports": "^3.2.0",
     "@types/eslint": "^8.4.2",
     "@types/fs-extra": "^9.0.13",
-    "@types/jest": "^27.5.0",
-    "@types/node": "^17.0.31",
+    "@types/jest": "^27.5.1",
+    "@types/node": "^17.0.33",
     "@typescript-eslint/eslint-plugin": "^5.23.0",
     "@typescript-eslint/parser": "^5.23.0",
     "chalk": "^5.0.1",
@@ -86,12 +86,12 @@
     "npm-check-updates": "^12.5.11",
     "plop": "^3.1.0",
     "prettier": "^2.6.2",
-    "rollup": "^2.72.1",
+    "rollup": "^2.73.0",
     "rollup-plugin-delete": "^2.0.0",
     "rollup-plugin-ts": "patch:rollup-plugin-ts@^2.0.5#./.yarn/patches/rollup-plugin-ts-npm-2.0.5-9d9fec7bf1.patch",
     "storybook-dark-mode": "^1.1.0",
     "tsconfig-paths-webpack-plugin": "^3.5.2",
-    "turbo": "^1.2.8",
+    "turbo": "^1.2.9",
     "typescript": "^4.6.4"
   },
   "config": {
