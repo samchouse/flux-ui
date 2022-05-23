@@ -96,7 +96,7 @@ const build = async () => {
     );
   } catch (err) {
     logger.error(`Failed to compile package: ${chalk.cyan(packageName)}`);
-    process.stdout.write(`${(err as Error).stack ?? ''}\n`);
+    console.error(err);
     process.exit(1);
   }
 };

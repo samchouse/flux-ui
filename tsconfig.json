@@ -18,8 +18,7 @@
     "resolveJsonModule": true,
     "paths": {
       "@flux-ui/*": ["packages/*/src"]
-    },
-    "types": ["react/next"]
+    }
   },
   "include": ["**/*.js", "**/*.ts", "**/*.tsx", "**/*.json"],
   "exclude": ["node_modules", "lib"]
