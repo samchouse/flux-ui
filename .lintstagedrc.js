@@ -8,7 +8,7 @@ module.exports = {
       .map((file) => file.split(`${process.cwd()}/`)[1])
       .join(' ')}`,
   'packages/**/*.{ts,tsx}': (filenames) =>
-    `turbo run lint --scope=!@flux-ui/docs -- ${filenames
+    `turbo run lint --filter=!@flux-ui/docs -- ${filenames
       .map((file) => file.split(`${process.cwd()}/`)[1])
       .join(' ')}`,
   'docs/**/*.{ts,tsx}': (filenames) =>
