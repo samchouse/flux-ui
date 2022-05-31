@@ -3,14 +3,14 @@ module.exports = {
   singleQuote: true,
   bracketSpacing: true,
   trailingComma: 'none',
-  importOrder: ['^@flux-ui/(.*)$', '^[./]'],
+  importOrder: [
+    '<THIRD_PARTY_TYPES>',
+    '^@flux-ui/(.*)$',
+    '<TYPE>^@flux-ui/(.*)$',
+    '^[./]',
+    '<TYPE>^[./]'
+  ],
   importOrderSeparation: true,
   importOrderSortSpecifiers: true,
-  importOrderParserPlugins: [
-    'typescript',
-    'jsx',
-    'classProperties',
-    'decorators-legacy'
-  ],
-  plugins: [require.resolve('@trivago/prettier-plugin-sort-imports')]
+  plugins: [require.resolve('@xenfo/prettier-plugin-sort-imports')]
 };
