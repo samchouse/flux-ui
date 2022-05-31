@@ -87,7 +87,7 @@
     "prettier": "^2.6.2",
     "rollup": "^2.74.1",
     "rollup-plugin-delete": "^2.0.0",
-    "rollup-plugin-ts": "^2.0.7",
+    "rollup-plugin-ts": "^3.0.0",
     "storybook-dark-mode": "^1.1.0",
     "tsconfig-paths-webpack-plugin": "^3.5.2",
     "turbo": "^1.2.11",
