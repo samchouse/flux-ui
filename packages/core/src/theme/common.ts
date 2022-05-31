@@ -1,5 +1,6 @@
-import type * as Stitches from '@stitches/react';
 import { ConfigType } from '@stitches/react/types/config';
+
+import type * as Stitches from '@stitches/react';
 
 export const borderWeights: ConfigType.Theme['borderWidths'] = {
   light: '1px',
