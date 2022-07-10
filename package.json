@@ -71,7 +71,7 @@
     "eslint-import-resolver-typescript": "^3.0.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-storybook": "^0.5.12",
+    "eslint-plugin-storybook": "^0.6.0",
     "execa": "^6.1.0",
     "fs-extra": "^10.1.0",
     "globby": "^13.1.1",
