@@ -9729,16 +9729,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-storybook@npm:^0.5.12":
-  version: 0.5.12
-  resolution: "eslint-plugin-storybook@npm:0.5.12"
+"eslint-plugin-storybook@npm:^0.6.0":
+  version: 0.6.0
+  resolution: "eslint-plugin-storybook@npm:0.6.0"
   dependencies:
     "@storybook/csf": ^0.0.1
     "@typescript-eslint/experimental-utils": ^5.3.0
     requireindex: ^1.1.0
   peerDependencies:
     eslint: ">=6"
-  checksum: 13cbee3db3aa092bf5a9a9e5f10e3e5f1853fcac897d19b0d448a835f566d05c803589f9ed5090ed4d50256dcada9b7c6838c16faeba821a3413b94aee141719
+  checksum: ab5e3c3403644a73308a068e2ea0d92f249d4ac979c36f0702f7926c0729226bf1a9fcfef581203b7c5b92e38df6adb4be36d1c6742ccf2b97a7893cd083dcd6
   languageName: node
   linkType: hard
 
@@ -10542,7 +10542,7 @@ __metadata:
     eslint-import-resolver-typescript: ^3.0.0
     eslint-plugin-import: ^2.26.0
     eslint-plugin-prettier: ^4.0.0
-    eslint-plugin-storybook: ^0.5.12
+    eslint-plugin-storybook: ^0.6.0
     execa: ^6.1.0
     fs-extra: ^10.1.0
     globby: ^13.1.1
