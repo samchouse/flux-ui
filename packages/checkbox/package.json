@@ -32,7 +32,7 @@
     "@flux-ui/core": "workspace:*",
     "@flux-ui/hooks": "workspace:*",
     "@heroicons/react": "^1.0.6",
-    "@radix-ui/react-accessible-icon": "^0.1.5-rc.22",
+    "@radix-ui/react-accessible-icon": "^1.0.0",
     "@radix-ui/react-checkbox": "^1.0.0",
     "@radix-ui/react-label": "^1.0.0"
   }
