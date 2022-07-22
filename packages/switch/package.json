@@ -30,6 +30,6 @@
   },
   "dependencies": {
     "@flux-ui/core": "workspace:*",
-    "@radix-ui/react-switch": "^0.1.5"
+    "@radix-ui/react-switch": "^1.0.0"
   }
 }
