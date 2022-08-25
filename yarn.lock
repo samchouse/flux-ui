@@ -1932,7 +1932,7 @@ __metadata:
   dependencies:
     "@flux-ui/core": "workspace:*"
     "@flux-ui/hooks": "workspace:*"
-    "@heroicons/react": ^1.0.6
+    "@heroicons/react": ^2.0.0
     "@radix-ui/react-accessible-icon": ^1.0.0
     "@radix-ui/react-checkbox": ^1.0.0
     "@radix-ui/react-label": ^1.0.0
@@ -2009,12 +2009,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@heroicons/react@npm:^1.0.6":
-  version: 1.0.6
-  resolution: "@heroicons/react@npm:1.0.6"
+"@heroicons/react@npm:^2.0.0":
+  version: 2.0.7
+  resolution: "@heroicons/react@npm:2.0.7"
   peerDependencies:
     react: ">= 16"
-  checksum: 372b1eda3ce735ef069777bc96304f70de585ebb71a6d1cedc121bb695f9bca235619112e3ee14e8779e95a03096813cbbe3b755927a54b7580d1ce084fa4096
+  checksum: 7a5bd25d6d1b29b07fe86e0fe2299e07b2b8cb2c34212e61724ddb801d007d8a90aa64557d3b8ad2c2fb8c122a1fd12626a8ba4f5c56b21f364de468d75c2566
   languageName: node
   linkType: hard
 
