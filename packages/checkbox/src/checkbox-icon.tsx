@@ -1,4 +1,4 @@
-import { CheckIcon, MinusIcon } from '@heroicons/react/solid';
+import { CheckIcon, MinusIcon } from '@heroicons/react/24/solid';
 import * as AccessibleIconPrimitive from '@radix-ui/react-accessible-icon';
 
 export interface CheckboxIconProps
