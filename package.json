@@ -85,7 +85,7 @@
     "npm-check-updates": "^16.1.0",
     "plop": "^3.1.1",
     "prettier": "^2.7.1",
-    "rollup": "^2.79.0",
+    "rollup": "^3.0.0",
     "rollup-plugin-delete": "^2.0.0",
     "rollup-plugin-ts": "^3.0.2",
     "storybook-dark-mode": "^1.1.0",

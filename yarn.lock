@@ -10823,7 +10823,7 @@ __metadata:
     npm-check-updates: ^16.1.0
     plop: ^3.1.1
     prettier: ^2.7.1
-    rollup: ^2.79.0
+    rollup: ^3.0.0
     rollup-plugin-delete: ^2.0.0
     rollup-plugin-ts: ^3.0.2
     storybook-dark-mode: ^1.1.0
@@ -18108,9 +18108,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:^2.79.0":
-  version: 2.79.0
-  resolution: "rollup@npm:2.79.0"
+"rollup@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "rollup@npm:3.0.0"
   dependencies:
     fsevents: ~2.3.2
   dependenciesMeta:
@@ -18118,7 +18118,7 @@ __metadata:
       optional: true
   bin:
     rollup: dist/bin/rollup
-  checksum: 166f1ffea1898e157003920065b3a328e7012ea6808860ee8fe5d1ce94804fcce9985c95a3c0f7fe9c611aff0d09a70f073f1d6f715c8faba28e4e40f71ee3bb
+  checksum: fe28da8fcda28204124b4ba2b7d5d538099c1d9b5b053468a062616d3520905ef53e0282b54e2ef9d7008598b1b40a686ec79da4d4d5500650b08c68564bc4de
   languageName: node
   linkType: hard
 
