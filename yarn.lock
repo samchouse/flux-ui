@@ -1987,7 +1987,7 @@ __metadata:
     "@heroicons/react": ^2.0.10
     "@radix-ui/react-accessible-icon": ^1.0.0
     "@radix-ui/react-checkbox": ^1.0.0
-    "@radix-ui/react-label": ^1.0.0
+    "@radix-ui/react-label": ^2.0.0
   peerDependencies:
     react: ">=18.0.0"
     react-dom: ">=18.0.0"
@@ -2962,7 +2962,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@radix-ui/react-label@npm:1.0.0, @radix-ui/react-label@npm:^1.0.0":
+"@radix-ui/react-label@npm:1.0.0":
   version: 1.0.0
   resolution: "@radix-ui/react-label@npm:1.0.0"
   dependencies:
@@ -2975,6 +2975,19 @@ __metadata:
     react: ^16.8 || ^17.0 || ^18.0
     react-dom: ^16.8 || ^17.0 || ^18.0
   checksum: 707a222b86c3ad5dd75e7116e1e4f451a91b7d96175d05c017f290299b7550401616204a8c77e749dc70c0971dd061e333e7a4489b4fab0fc124403833e489c7
+  languageName: node
+  linkType: hard
+
+"@radix-ui/react-label@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "@radix-ui/react-label@npm:2.0.0"
+  dependencies:
+    "@babel/runtime": ^7.13.10
+    "@radix-ui/react-primitive": 1.0.1
+  peerDependencies:
+    react: ^16.8 || ^17.0 || ^18.0
+    react-dom: ^16.8 || ^17.0 || ^18.0
+  checksum: 7ff57bd696d643c428425f4cdffcc54d1fa24b2e33a7a0f0fdc2ab0db10ddbe338fee22084db5706a2e27b7da75c40e11b8f4dde23546f78efcf2e53f83ec6d6
   languageName: node
   linkType: hard
 
@@ -3005,6 +3018,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@radix-ui/react-primitive@npm:1.0.1":
+  version: 1.0.1
+  resolution: "@radix-ui/react-primitive@npm:1.0.1"
+  dependencies:
+    "@babel/runtime": ^7.13.10
+    "@radix-ui/react-slot": 1.0.1
+  peerDependencies:
+    react: ^16.8 || ^17.0 || ^18.0
+    react-dom: ^16.8 || ^17.0 || ^18.0
+  checksum: 1cc86b72f926be4a42122e7e456e965de0906f16b0dc244b8448bac05905f208598c984a0dd40026f654b4a71d0235335d48a18e377b07b0ec6c6917576a8080
+  languageName: node
+  linkType: hard
+
 "@radix-ui/react-slot@npm:1.0.0":
   version: 1.0.0
   resolution: "@radix-ui/react-slot@npm:1.0.0"
@@ -3014,6 +3040,18 @@ __metadata:
   peerDependencies:
     react: ^16.8 || ^17.0 || ^18.0
   checksum: 60c0190ebdca21785b4f8b58a0c52717600c98953fc49da9580870519c60f52d5cf873dffa05446f4bb539066326ccec0827f4ca252b02ec4ff1a4ae203f59d7
+  languageName: node
+  linkType: hard
+
+"@radix-ui/react-slot@npm:1.0.1":
+  version: 1.0.1
+  resolution: "@radix-ui/react-slot@npm:1.0.1"
+  dependencies:
+    "@babel/runtime": ^7.13.10
+    "@radix-ui/react-compose-refs": 1.0.0
+  peerDependencies:
+    react: ^16.8 || ^17.0 || ^18.0
+  checksum: a20693f8ce532bd6cbff12ba543dfcf90d451f22923bd60b57dc9e639f6e53348915e182002b33444feb6ab753434e78e2a54085bf7092aadda4418f0423763f
   languageName: node
   linkType: hard
 
