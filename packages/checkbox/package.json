@@ -34,6 +34,6 @@
     "@heroicons/react": "^2.0.10",
     "@radix-ui/react-accessible-icon": "^1.0.0",
     "@radix-ui/react-checkbox": "^1.0.0",
-    "@radix-ui/react-label": "^1.0.0"
+    "@radix-ui/react-label": "^2.0.0"
   }
 }
