@@ -73,7 +73,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-storybook": "^0.6.4",
     "execa": "^6.1.0",
-    "fs-extra": "^10.1.0",
+    "fs-extra": "^11.0.0",
     "globby": "^13.1.2",
     "husky": "^8.0.1",
     "is-ci": "^3.0.1",
