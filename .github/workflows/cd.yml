@@ -58,14 +58,14 @@ jobs:
             };
 
       - name: Generate Changelog
-        uses: orhun/git-cliff-action@v1
+        uses: orhun/git-cliff-action@v2
         with:
           config: ./cliff.toml
         env:
           OUTPUT: CHANGELOG.md
 
       - name: Generate Release Changelog
-        uses: orhun/git-cliff-action@v1
+        uses: orhun/git-cliff-action@v2
         id: git-cliff
         with:
           config: ${{ fromJSON(steps.canary-meta.outputs.result).cliffPath }}
