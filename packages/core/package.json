@@ -27,8 +27,5 @@
   "peerDependencies": {
     "react": ">=18.0.0",
     "react-dom": ">=18.0.0"
-  },
-  "dependencies": {
-    "@stitches/react": "^1.2.8"
   }
 }

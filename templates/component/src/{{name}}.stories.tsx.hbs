@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { {{capitalize name}} } from './{{name}}';
+import { {{capitalize name}}, {{capitalize name}}Props } from './{{name}}';
 
-type Story = StoryObj<typeof {{capitalize name}}>;
+type Story = StoryObj<{{capitalize name}}Props>;
 
 export const Default: Story = {
   args: {}
 };
 
-const meta: Meta<typeof {{capitalize name}}> = {
+const meta: Meta<{{capitalize name}}Props> = {
   title: '{{capitalize name}}',
   component: {{capitalize name}}
 };

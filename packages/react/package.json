@@ -29,6 +29,7 @@
     "react-dom": ">=18.0.0"
   },
   "dependencies": {
+    "@flux-ui/button": "workspace:*",
     "@flux-ui/core": "workspace:*",
     "@flux-ui/hooks": "workspace:*"
   }
