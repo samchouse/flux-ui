@@ -1,5 +1,5 @@
 {
-  "display": "Switch",
+  "display": "Button",
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "target": "ESNext",

@@ -1,5 +1,5 @@
 {
-  "display": "Default",
+  "display": "default",
   "compilerOptions": {
     "baseUrl": ".",
     "rootDir": ".",
@@ -20,6 +20,13 @@
       "@flux-ui/*": ["packages/*/src"]
     }
   },
-  "include": ["**/*.js", "**/*.ts", "**/*.tsx", "**/*.json"],
+  "include": [
+    "**/*.js",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.mts",
+    "**/*.json",
+    ".storybook/*.ts"
+  ],
   "exclude": ["node_modules", "lib"]
 }

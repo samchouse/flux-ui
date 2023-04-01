@@ -1,28 +1,19 @@
 import chalk from 'chalk';
 import { execa } from 'execa';
 import { globby } from 'globby';
-import { createRequire } from 'module';
 import { run } from 'npm-check-updates';
 import path from 'path';
 
-const require = createRequire(import.meta.url);
+import { workspaces } from '../package.json';
 
 const logger = console.log;
 console.log = () => null;
 
-const getPackageJsons = async () => {
-  const { workspaces } = require('../package.json');
-
-  return (
-    await globby(
-      workspaces.map((ws) => path.join(ws, 'package.json')),
-      { cwd: process.cwd() }
-    )
-  ).concat([path.join(process.cwd(), 'package.json')]);
-};
-
 const upgrade = async () => {
-  const packageJsons = await getPackageJsons();
+  const packageJsons = await globby(
+    workspaces.map((ws) => path.join(ws, 'package.json')),
+    { cwd: process.cwd() }
+  );
 
   for (const pkgJson of packageJsons) {
     await run({ packageFile: pkgJson, upgrade: true }).catch(() => {
@@ -42,4 +33,4 @@ const upgrade = async () => {
   );
 };
 
-upgrade();
+void upgrade();

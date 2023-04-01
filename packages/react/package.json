@@ -1,7 +1,7 @@
 {
   "name": "@flux-ui/react",
   "version": "0.0.5",
-  "description": "An awesome React component library built with Radix UI Primitives & Stiches",
+  "description": "An awesome React component library built with React Aria & Tailwind CSS",
   "author": "Samuel Corsi-House <chouse.samuel@gmail.com>",
   "license": "MIT",
   "main": "./lib/cjs/index.js",
@@ -29,9 +29,7 @@
     "react-dom": ">=18.0.0"
   },
   "dependencies": {
-    "@flux-ui/checkbox": "workspace:*",
     "@flux-ui/core": "workspace:*",
-    "@flux-ui/hooks": "workspace:*",
-    "@flux-ui/switch": "workspace:*"
+    "@flux-ui/hooks": "workspace:*"
   }
 }

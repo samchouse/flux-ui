@@ -1,5 +1,5 @@
 {
-  "display": "React",
+  "display": "react",
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "target": "ESNext",
@@ -17,16 +17,10 @@
   "exclude": ["node_modules", "lib"],
   "references": [
     {
-      "path": "../checkbox"
-    },
-    {
       "path": "../core"
     },
     {
       "path": "../hooks"
-    },
-    {
-      "path": "../switch"
     }
   ]
 }

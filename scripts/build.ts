@@ -40,8 +40,8 @@ const bundleDir = (type: string) => `lib/${type}`;
 
 const build = async () => {
   const chalk = (await import('chalk')).default;
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-require-imports, @typescript-eslint/no-var-requires
-  const packageName = require(`${process.cwd()}/package.json`).name as string;
+  const packageName = (await import(`${process.cwd()}/package.json`))
+    .name as string;
 
   const startTime = Date.now();
   const logger = new Logger('build', chalk);
