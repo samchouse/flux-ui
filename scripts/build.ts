@@ -1,96 +1,91 @@
-import commonjs from '@rollup/plugin-commonjs';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
-import { rollup } from 'rollup';
+import { ModuleFormat, Plugin, RollupOptions, rollup } from 'rollup';
 import del from 'rollup-plugin-delete';
-import typescript from 'rollup-plugin-ts';
+import dts from 'rollup-plugin-dts';
+import { swc } from 'rollup-plugin-swc3';
 
 import { Logger } from './utils/logger';
 
-const swcOptions = {
-  jsc: {
-    parser: {
-      syntax: 'typescript',
-      tsx: true,
-      decorators: false,
-      dynamicImport: true
-    },
-    externalHelpers: true,
-    transform: {
-      react: {
-        runtime: 'automatic'
-      }
-    },
-    loose: false,
-    minify: {
-      compress: false,
-      mangle: true,
-      format: {
-        comments: true
-      }
-    },
-    target: 'es2022'
-  },
-  minify: false,
-  module: {
-    type: 'es6'
-  }
-};
-
-const bundleDir = (type: string) => `lib/${type}`;
-
 const build = async () => {
   const chalk = (await import('chalk')).default;
-  const packageName = (await import(`${process.cwd()}/package.json`))
-    .name as string;
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
+  const packageName = require(`${process.cwd()}/package.json`).name as string;
 
   const startTime = Date.now();
   const logger = new Logger('build', chalk);
 
-  logger.info(`Building package ${chalk.cyan(packageName)}`);
+  logger.info(`Building ${chalk.cyan(packageName)}`);
 
   try {
-    const bundle = await rollup({
-      input: 'src/index.ts',
-      treeshake: true,
-      onwarn(warning, handler) {
-        if (['UNUSED_EXTERNAL_IMPORT'].includes(warning.code ?? '')) return;
-        return handler(warning);
+    const sharedPlugins = [
+      nodeResolve(),
+      swc({
+        module: {
+          type: 'es6'
+        },
+        jsc: {
+          minify: {
+            mangle: false,
+            compress: false,
+            format: {
+              comments: 'all'
+            }
+          }
+        }
+      })
+    ];
+    const bundles: {
+      outputs: { name: string; format: ModuleFormat }[];
+      plugins: Plugin[];
+    }[] = [
+      {
+        outputs: [
+          { name: 'cjs', format: 'cjs' },
+          { name: 'esm', format: 'esm' }
+        ],
+        plugins: [
+          del({
+            targets: ['lib/']
+          }),
+          ...sharedPlugins
+        ]
       },
-      plugins: [
-        del({
-          targets: ['lib/']
-        }),
-        commonjs(),
-        nodeResolve(),
-        typescript({
-          transpiler: 'swc',
-          swcConfig: swcOptions
-        })
-      ],
-      external: (_) =>
-        (_.includes('node_modules') ||
-          _.includes('packages') ||
-          _.includes('@flux-ui/')) &&
-        !_.includes(packageName.split('/')[1]) &&
-        !_.includes('@swc/helpers')
-    });
+      {
+        outputs: [{ name: 'types', format: 'esm' }],
+        plugins: [
+          ...sharedPlugins,
+          dts({
+            tsconfig: `${process.cwd()}/tsconfig.build.json`
+          })
+        ]
+      }
+    ];
 
-    logger.info(`Building to ${chalk.cyan('cjs')} format...`);
-    await bundle.write({
-      dir: bundleDir('cjs'),
-      format: 'cjs'
-    });
+    for (const bundleOptions of bundles) {
+      const rollupOptions: RollupOptions = {
+        input: 'src/index.ts',
+        external: (id) =>
+          id.includes('node_modules') || id.includes('@flux-ui/')
+      };
 
-    logger.info(`Building to ${chalk.cyan('esm')} format...`);
-    await bundle.write({
-      dir: bundleDir('esm'),
-      format: 'esm'
-    });
+      const bundle = await rollup({
+        ...rollupOptions,
+        plugins: bundleOptions.plugins
+      });
 
-    await bundle.close();
+      for (const output of bundleOptions.outputs) {
+        logger.info(`Done building for target: ${chalk.cyan(output.name)}`);
+        await bundle.write({
+          dir: `lib/${output.name}`,
+          format: output.format
+        });
+      }
+
+      await bundle.close();
+    }
 
     logger.info(
-      `Package ${chalk.cyan(packageName)} was build in ${chalk.green(
+      `${chalk.cyan(packageName)} built in ${chalk.green(
         `${((Date.now() - startTime) / 1000).toFixed(2)}s`
       )}`
     );
