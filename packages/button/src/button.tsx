@@ -1,30 +1,39 @@
 import { useButton } from '@react-aria/button';
 import { useObjectRef } from '@react-aria/utils';
+import { type AriaButtonProps } from '@react-types/button';
 import { forwardRef } from 'react';
-import { type VariantProps } from 'tailwind-variants';
+import { type ClassValue, type VariantProps } from 'tailwind-variants';
 
 import { button } from './button.styles';
 
 export interface ButtonProps
   extends Omit<VariantProps<typeof button>, 'active'>,
+    Pick<AriaButtonProps<'button'>, 'onBlur' | 'onFocus'>,
     Omit<
       React.ComponentPropsWithoutRef<'button'>,
-      'onFocus' | 'onBlur' | 'color'
+      'onFocus' | 'onBlur' | 'color' | 'className'
     > {
-  tmp: string;
+  className: ClassValue;
 }
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ children, ...props }: ButtonProps, forwardedRef) => {
-    const ref = useObjectRef(forwardedRef);
+    const { disabled } = props;
 
-    const { buttonProps, isPressed } = useButton({ ...props, children }, ref);
+    const ref = useObjectRef(forwardedRef);
+    const { buttonProps, isPressed } = useButton(
+      { ...props, children, isDisabled: disabled },
+      ref
+    );
 
     return (
       <button
         {...buttonProps}
         ref={ref}
-        className={button({ ...props, className: '', active: isPressed })}
+        className={button({
+          ...props,
+          active: isPressed
+        })}
       >
         {children}
       </button>

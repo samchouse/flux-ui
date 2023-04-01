@@ -2,6 +2,7 @@
   "display": "default",
   "compilerOptions": {
     "baseUrl": ".",
+    "rootDir": ".",
     "composite": true,
     "declaration": true,
     "esModuleInterop": true,

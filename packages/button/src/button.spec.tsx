@@ -10,8 +10,7 @@ describe.concurrent('@flux-ui/button', () => {
 
   it('should render successfully', async () => {
     const props: ButtonProps = {
-      children: 'Test',
-      tmp: 'test'
+      children: 'Test'
     };
 
     render(<Button {...props} />);
