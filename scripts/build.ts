@@ -22,15 +22,6 @@ const build = async () => {
       swc({
         module: {
           type: 'es6'
-        },
-        jsc: {
-          minify: {
-            mangle: false,
-            compress: false,
-            format: {
-              comments: 'all'
-            }
-          }
         }
       })
     ];

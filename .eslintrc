@@ -1,22 +1,30 @@
 {
   "root": true,
-  "parser": "@typescript-eslint/parser",
   "ignorePatterns": ["*.d.ts"],
-  "plugins": ["@typescript-eslint", "prettier"],
-  "extends": [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:storybook/recommended",
-    "plugin:prettier/recommended"
-  ],
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "tsconfigRootDir": ".",
     "project": ["./tsconfig.json", "./packages/*/tsconfig.json"],
     "EXPERIMENTAL_useSourceOfProjectReferenceRedirect": true
   },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:storybook/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
   "rules": {
     "arrow-body-style": ["error"],
     "prefer-arrow-callback": ["error"],
+    "react/react-in-jsx-scope": ["off"],
     "no-unused-vars": [
       "error",
       { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" }
