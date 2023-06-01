@@ -98,5 +98,5 @@
       "path": "@commitlint/cz-commitlint"
     }
   },
-  "packageManager": "yarn@3.5.0"
+  "packageManager": "yarn@3.6.0"
 }
