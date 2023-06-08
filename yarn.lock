@@ -2009,7 +2009,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@flux-ui/docs@workspace:docs"
   dependencies:
-    "@types/react": 18.0.35
+    "@types/react": 18.2.9
     eslint-config-next: 13.2.4
     next: 13.2.4
     react: 18.2.0
@@ -5400,14 +5400,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:18.0.35":
-  version: 18.0.35
-  resolution: "@types/react@npm:18.0.35"
+"@types/react@npm:18.2.9":
+  version: 18.2.9
+  resolution: "@types/react@npm:18.2.9"
   dependencies:
     "@types/prop-types": "*"
     "@types/scheduler": "*"
     csstype: ^3.0.2
-  checksum: e65670397216e037b150a509ec08189140b4c20b82b612ac00b2a7133202be2d1def1e7ee69617b2df06ab4c00c43c4ee23e84788ad661aea9664da2f27c518a
+  checksum: f155256171a2d701eb962a1d3aa2a1c9ee36d9dd4a4aecb911d29e50717aab1a76914aef25242665147c455b9e8d081d1a60275d13ca81075c148ebd6607414a
   languageName: node
   linkType: hard
 
