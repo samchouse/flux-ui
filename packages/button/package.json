@@ -29,8 +29,8 @@
     "react-dom": ">=18.0.0"
   },
   "dependencies": {
-    "@react-aria/button": "^3.7.1",
-    "@react-aria/utils": "^3.16.0",
-    "tailwind-variants": "^0.1.2"
+    "@react-aria/button": "^3.8.0",
+    "@react-aria/utils": "^3.18.0",
+    "tailwind-variants": "^0.1.13"
   }
 }
