@@ -1,12 +1,12 @@
 {
   "name": "@flux-ui/core",
   "version": "0.0.5",
-  "description": "An awesome React component library built with Radix UI Primitives & Stiches",
+  "description": "An awesome React component library built with React Aria & Tailwind CSS",
   "author": "Samuel Corsi-House <chouse.samuel@gmail.com>",
   "license": "MIT",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
-  "types": "./lib/esm/index.d.ts",
+  "types": "./lib/types/index.d.ts",
   "files": [
     "lib"
   ],
@@ -27,8 +27,5 @@
   "peerDependencies": {
     "react": ">=18.0.0",
     "react-dom": ">=18.0.0"
-  },
-  "dependencies": {
-    "@stitches/react": "^1.2.8"
   }
 }

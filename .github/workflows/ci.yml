@@ -21,7 +21,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           cache: yarn
-          node-version: 17.8.0
+          node-version: latest
 
       - name: Restore Turbo Cache
         uses: actions/cache@v3
@@ -52,7 +52,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           cache: yarn
-          node-version: 17.8.0
+          node-version: latest
 
       - name: Restore Turbo Cache
         uses: actions/cache@v3
@@ -66,7 +66,7 @@ jobs:
         run: yarn --immutable
 
       - name: Run Tests
-        run: yarn test:ci
+        run: yarn test
         env:
           VERCEL_ARTIFACTS_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           VERCEL_ARTIFACTS_OWNER: ${{ secrets.VERCEL_OWNER }}
@@ -88,7 +88,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           cache: yarn
-          node-version: 17.8.0
+          node-version: latest
 
       - name: Install Dependencies
         run: yarn --immutable
@@ -96,6 +96,7 @@ jobs:
       - name: Publish to Chromatic
         uses: chromaui/action@v1
         with:
+          onlyChanged: true
           autoAcceptChanges: true
           buildScriptName: sb:build
           token: ${{ secrets.GITHUB_TOKEN }}

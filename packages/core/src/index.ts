@@ -1,5 +1,3 @@
-// Theme
-export * from './theme';
+export {};
 
-// Typings
-export * from './typings';
+export const abc = 123;

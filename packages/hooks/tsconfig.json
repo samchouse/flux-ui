@@ -1,5 +1,5 @@
 {
-  "display": "Hooks",
+  "display": "hooks",
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "target": "ESNext",

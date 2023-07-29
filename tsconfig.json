@@ -1,5 +1,5 @@
 {
-  "display": "Default",
+  "display": "default",
   "compilerOptions": {
     "baseUrl": ".",
     "rootDir": ".",
@@ -16,10 +16,18 @@
     "skipLibCheck": true,
     "strict": true,
     "resolveJsonModule": true,
+    "jsx": "react-jsx",
     "paths": {
       "@flux-ui/*": ["packages/*/src"]
     }
   },
-  "include": ["**/*.js", "**/*.ts", "**/*.tsx", "**/*.json"],
+  "include": [
+    "**/*.js",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.mts",
+    "**/*.json",
+    ".storybook/*.ts"
+  ],
   "exclude": ["node_modules", "lib"]
 }

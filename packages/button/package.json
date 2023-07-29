@@ -1,5 +1,5 @@
 {
-  "name": "@flux-ui/hooks",
+  "name": "@flux-ui/button",
   "version": "0.0.5",
   "description": "An awesome React component library built with React Aria & Tailwind CSS",
   "author": "Samuel Corsi-House <chouse.samuel@gmail.com>",
@@ -17,7 +17,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/flux-ui/flux-ui.git",
-    "directory": "packages/hooks"
+    "directory": "packages/button"
   },
   "scripts": {
     "build": "run -T swc-node scripts/build.ts",
@@ -27,5 +27,10 @@
   "peerDependencies": {
     "react": ">=18.0.0",
     "react-dom": ">=18.0.0"
+  },
+  "dependencies": {
+    "@react-aria/button": "^3.8.0",
+    "@react-aria/utils": "^3.18.0",
+    "tailwind-variants": "^0.1.13"
   }
 }
